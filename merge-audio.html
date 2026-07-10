@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Online Audio Merger – Join Multiple Audio Files – AudioToolkit</title>
+<meta name="description" content="Merge or join multiple audio files into one free online. Reorder your clips, combine them instantly, and download. No upload to servers, 100% private." />
+<meta name="keywords" content="merge audio files, join audio online, combine mp3 files, audio joiner, free audio merger" />
+<link rel="canonical" href="https://audiotoolkit.netlify.app/merge-audio.html" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AudioToolkit" />
+<meta property="og:title" content="Free Online Audio Merger – Join Multiple Audio Files – AudioToolkit" />
+<meta property="og:description" content="Merge or join multiple audio files into one free online. Reorder your clips and combine them instantly, entirely in your browser." />
+<meta property="og:url" content="https://audiotoolkit.netlify.app/merge-audio.html" />
+<meta property="og:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Online Audio Merger – Join Multiple Audio Files – AudioToolkit" />
+<meta name="twitter:description" content="Merge or join multiple audio files into one free online. Reorder your clips and combine them instantly, entirely in your browser." />
+<meta name="twitter:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Audio Merger",
+  "url": "https://audiotoolkit.netlify.app/merge-audio.html",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "description": "Merge or join multiple audio files into one free online, entirely in your browser.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Can I merge audio files with different formats?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can mix formats like MP3 and WAV in the same merge — each file is decoded and converted internally before being joined together."}},
+    {"@type":"Question","name":"Can I change the order of the files before merging?","acceptedAnswer":{"@type":"Answer","text":"Yes, use the up and down arrows next to each file in the list to reorder them before merging."}},
+    {"@type":"Question","name":"Is there a limit to how many files I can merge?","acceptedAnswer":{"@type":"Answer","text":"There's no hard limit set by this tool, but merging many large files will take longer since everything is processed using your device's own processing power."}},
+    {"@type":"Question","name":"Will merging affect the audio quality?","acceptedAnswer":{"@type":"Answer","text":"The tool preserves quality as much as possible during merging. If you export as MP3, the final file will use standard MP3 compression, similar to any other MP3 export."}},
+    {"@type":"Question","name":"Are my files uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens locally in your browser. Your files are never uploaded anywhere."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111827; --bg2:#1A2333; --green:#10B981; --green2:#059669; --cyan:#22D3EE;
+  --white:#FFFFFF; --slate:#9CA3AF; --border:#293449; --card:#1A2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+
+.breadcrumb{padding:14px 5% 0;font-size:.82rem;color:var(--slate);max-width:1100px;margin:0 auto}
+.breadcrumb a{color:var(--cyan);text-decoration:none}
+
+.hero{padding:64px 5% 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--slate);font-size:1.05rem;max-width:540px;margin:0 auto}
+
+.tool-section{padding:40px 5% 70px}
+.tool-box{max-width:660px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:34px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+
+.upload-zone{border:2px dashed rgba(16,185,129,0.4);border-radius:18px;padding:40px 24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(16,185,129,0.04)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--green);background:rgba(16,185,129,0.08)}
+.upload-zone input{display:none}
+.upload-icon{width:52px;height:52px;margin:0 auto 14px;background:linear-gradient(135deg,var(--green),var(--cyan));border-radius:50%;display:flex;align-items:center;justify-content:center}
+.upload-icon svg{width:24px;height:24px;stroke:#0B1120;fill:none;stroke-width:2.4}
+.upload-zone h3{font-size:1.02rem;font-weight:700;margin-bottom:5px;color:var(--white)}
+.upload-zone p{color:var(--slate);font-size:.85rem}
+
+.file-list{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+.file-row{display:flex;align-items:center;gap:10px;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.file-row .fnum{width:24px;height:24px;border-radius:50%;background:rgba(16,185,129,0.15);color:var(--green);font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.file-row .fdetails{flex:1;overflow:hidden}
+.file-row .fname{font-weight:700;font-size:.86rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--white)}
+.file-row .fmeta{font-size:.75rem;color:var(--slate)}
+.file-row .fbtns{display:flex;gap:4px;flex-shrink:0}
+.icon-btn{width:28px;height:28px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--slate);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .15s}
+.icon-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.icon-btn.remove:hover{border-color:#F87171;color:#F87171}
+
+.add-more-btn{margin-top:12px;width:100%;background:var(--bg);border:1.5px dashed var(--border);color:var(--slate);border-radius:12px;padding:10px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:inherit;transition:border-color .2s}
+.add-more-btn:hover{border-color:var(--green);color:var(--green)}
+
+.control-panel{display:none;margin-top:22px}
+.control-panel.active{display:block}
+.control-group{margin-bottom:20px}
+.control-group label{display:block;font-size:.85rem;font-weight:700;margin-bottom:9px;color:var(--white)}
+select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:inherit;background:var(--bg);color:var(--white)}
+
+.btn-convert{width:100%;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;border:none;border-radius:14px;padding:15px;font-weight:800;font-size:.98rem;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
+.btn-convert:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,185,129,0.3)}
+.btn-convert:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+.progress-wrap{display:none;margin-top:18px}
+.progress-wrap.active{display:block}
+.progress-bar{height:9px;background:var(--border);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:0%;transition:width .15s;border-radius:100px}
+.progress-label{font-size:.8rem;color:var(--slate);margin-top:7px;text-align:center;font-weight:600}
+
+.result-box{display:none;margin-top:20px;text-align:center;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:18px;padding:24px}
+.result-box.active{display:block}
+.result-box h3{font-size:1.02rem;font-weight:700;margin-bottom:14px;color:var(--white)}
+.btn-download{display:inline-block;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;text-decoration:none;font-weight:800;padding:13px 30px;border-radius:14px;font-size:.92rem}
+
+.reset-link{display:block;text-align:center;margin-top:16px;font-size:.85rem;color:var(--slate);cursor:pointer;font-weight:600}
+.reset-link:hover{color:var(--cyan)}
+
+section.content{padding:20px 5% 60px}
+.content-wrap{max-width:740px;margin:0 auto}
+.section-block{padding:34px 0;border-bottom:1px solid var(--border)}
+.section-block:last-child{border-bottom:none}
+.section-block h2{font-size:clamp(1.2rem,2.5vw,1.5rem);font-weight:800;letter-spacing:-.4px;margin-bottom:14px;color:var(--white)}
+.section-block h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px;color:var(--cyan)}
+.section-block p{color:#CBD5E1;font-size:.97rem;margin-bottom:12px}
+.section-block p:last-child{margin-bottom:0}
+.section-block ul{margin:0 0 12px 20px;color:#CBD5E1;font-size:.97rem}
+.section-block li{margin-bottom:6px}
+.section-block strong{color:var(--white)}
+
+.faq-section{background:var(--bg2);padding:60px 5%}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:17px 22px;font-weight:700;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+.faq-arrow{transition:transform .2s;color:var(--green)}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 22px;font-size:.9rem;color:#CBD5E1}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+
+footer{background:#0B111F;color:var(--slate);text-align:center;padding:38px 5%;border-top:1px solid var(--border)}
+.footer-logo{color:var(--white);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:var(--slate);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+footer p{font-size:.82rem}
+
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Audio<span>Toolkit</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#tools">All Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Merge Audio Files</div>
+
+<section class="hero">
+  <div class="hero-badge">Free · Private · No Login</div>
+  <h1>Merge &amp; Join <span>Audio Files</span></h1>
+  <p>Combine multiple audio files into one, in any order you choose. Everything happens right in your browser — nothing is uploaded.</p>
+</section>
+
+<section class="tool-section">
+  <div class="tool-box">
+
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" accept="audio/*" multiple />
+      <div class="upload-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      </div>
+      <h3>Click or drag two or more audio files here</h3>
+      <p>Supports MP3, WAV, M4A, AAC, OGG — mix formats freely</p>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+    <button class="add-more-btn" id="addMoreBtn" style="display:none">+ Add another file</button>
+    <input type="file" id="fileInputMore" accept="audio/*" multiple style="display:none" />
+
+    <div class="control-panel" id="controlPanel">
+      <div class="control-group">
+        <label>Export format</label>
+        <select id="formatSelect">
+          <option value="wav">WAV (lossless, original quality)</option>
+          <option value="mp3">MP3 (compressed, smaller file)</option>
+        </select>
+      </div>
+
+      <button class="btn-convert" id="mergeBtn">Merge &amp; Download</button>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Processing...</div>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <h3>Your merged file is ready!</h3>
+        <a class="btn-download" id="downloadBtn" download>Download File</a>
+      </div>
+
+      <span class="reset-link" id="resetLink">Start over</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="content">
+  <div class="content-wrap">
+
+    <div class="section-block">
+      <h2>Free Online Audio Merger</h2>
+      <p>Sometimes one audio file isn't enough — you've got an intro clip, a main recording, and an outro that all need to become a single file. Or you've recorded a long conversation in several parts and want them stitched into one continuous track. This tool joins any number of audio files together, in whatever order you choose, and hands you back a single combined file.</p>
+      <p>Like the rest of these tools, merging happens entirely in your browser. Your files are read directly from your device, decoded, joined together, and re-encoded — without ever being sent to a server.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>How to Merge Audio Files</h2>
+      <ul>
+        <li><strong>Upload your files.</strong> Select or drag in two or more audio files — you can mix different formats like MP3 and WAV in the same merge.</li>
+        <li><strong>Set the order.</strong> Use the up and down arrows next to each file to arrange them in the order you want them joined.</li>
+        <li><strong>Choose a format.</strong> Pick WAV for lossless quality or MP3 for a smaller combined file.</li>
+        <li><strong>Merge and download.</strong> Click "Merge & Download" and your combined file will be ready in moments.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>Handling Different Formats and Quality Levels</h2>
+      <p>You don't need every file to match before merging. This tool decodes each file individually and automatically brings them all to a consistent sample rate and channel format before joining them, so you can freely combine, say, a mono voice memo with a stereo music track without needing to convert anything yourself first.</p>
+      <p>Keep in mind that the overall quality of the merged file is limited by whichever source file has the lowest quality — merging a low-bitrate recording with a high-quality one won't upgrade the lower one, since audio can't gain back detail that was never captured in the first place.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Common Reasons to Merge Audio</h2>
+      <ul>
+        <li>Combining an intro jingle, main episode, and outro into one finished podcast file</li>
+        <li>Joining several recorded parts of a long meeting, lecture, or interview into a single track</li>
+        <li>Stitching together voice memos recorded across multiple takes</li>
+        <li>Creating a single continuous playlist file from separate music tracks</li>
+        <li>Combining a voiceover with background music that was recorded separately</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>Tips for a Smooth Merge</h2>
+      <ul>
+        <li>Trim any unwanted silence from the start or end of individual clips before merging, using an audio trimmer — this avoids awkward gaps in the final file</li>
+        <li>If your clips have noticeably different volume levels, consider normalizing them first so the merged file doesn't have jarring loud-to-quiet jumps</li>
+        <li>Double-check the file order before merging — reordering after the fact means starting over</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I merge audio files with different formats? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Yes. You can mix formats like MP3 and WAV in the same merge — each file is decoded and converted internally before being joined together.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I change the order of the files before merging? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Yes, use the up and down arrows next to each file in the list to reorder them before merging.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is there a limit to how many files I can merge? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">There's no hard limit set by this tool, but merging many large files will take longer since everything is processed using your device's own processing power.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Will merging affect the audio quality? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">The tool preserves quality as much as possible during merging. If you export as MP3, the final file will use standard MP3 compression, similar to any other MP3 export.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Are my files uploaded to a server? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. All processing happens locally in your browser. Your files are never uploaded anywhere.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Audio<span>Toolkit</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p>© 2026 AudioToolkit. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script>
+  function toggleFaq(el){ el.parentElement.classList.toggle('open'); }
+
+  const uploadZone = document.getElementById('uploadZone');
+  const fileInput = document.getElementById('fileInput');
+  const fileInputMore = document.getElementById('fileInputMore');
+  const fileListEl = document.getElementById('fileList');
+  const addMoreBtn = document.getElementById('addMoreBtn');
+  const controlPanel = document.getElementById('controlPanel');
+  const formatSelect = document.getElementById('formatSelect');
+  const mergeBtn = document.getElementById('mergeBtn');
+  const progressWrap = document.getElementById('progressWrap');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const resultBox = document.getElementById('resultBox');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetLink = document.getElementById('resetLink');
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContextClass();
+
+  let files = [];
+
+  uploadZone.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    addFiles(Array.from(e.dataTransfer.files));
+  });
+  fileInput.addEventListener('change', e => { addFiles(Array.from(e.target.files)); fileInput.value=''; });
+  fileInputMore.addEventListener('change', e => { addFiles(Array.from(e.target.files)); fileInputMore.value=''; });
+  addMoreBtn.addEventListener('click', () => fileInputMore.click());
+
+  function addFiles(newFiles){
+    newFiles.forEach(f => { if (f.type.startsWith('audio') || /\.(mp3|wav|m4a|aac|ogg)$/i.test(f.name)) files.push(f); });
+    renderList();
+  }
+
+  function renderList(){
+    fileListEl.innerHTML = '';
+    files.forEach((f, i) => {
+      const row = document.createElement('div');
+      row.className = 'file-row';
+      row.innerHTML = `
+        <div class="fnum">${i+1}</div>
+        <div class="fdetails">
+          <div class="fname">${f.name}</div>
+          <div class="fmeta">${(f.size/1024/1024).toFixed(2)} MB</div>
+        </div>
+        <div class="fbtns">
+          <div class="icon-btn up" title="Move up">↑</div>
+          <div class="icon-btn down" title="Move down">↓</div>
+          <div class="icon-btn remove" title="Remove">✕</div>
+        </div>
+      `;
+      row.querySelector('.up').addEventListener('click', () => { if (i>0){ [files[i-1],files[i]]=[files[i],files[i-1]]; renderList(); }});
+      row.querySelector('.down').addEventListener('click', () => { if (i<files.length-1){ [files[i+1],files[i]]=[files[i],files[i+1]]; renderList(); }});
+      row.querySelector('.remove').addEventListener('click', () => { files.splice(i,1); renderList(); });
+      fileListEl.appendChild(row);
+    });
+
+    if (files.length >= 2){
+      controlPanel.classList.add('active');
+      addMoreBtn.style.display = 'block';
+    } else {
+      controlPanel.classList.remove('active');
+      addMoreBtn.style.display = files.length ? 'block' : 'none';
+    }
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+  }
+
+  resetLink.addEventListener('click', () => {
+    files = [];
+    renderList();
+  });
+
+  async function resampleBuffer(buffer, targetRate, targetChannels){
+    if (buffer.sampleRate === targetRate && buffer.numberOfChannels === targetChannels) return buffer;
+    const length = Math.ceil(buffer.duration * targetRate);
+    const offlineCtx = new OfflineAudioContext(targetChannels, length, targetRate);
+    const src = offlineCtx.createBufferSource();
+    src.buffer = buffer;
+    src.connect(offlineCtx.destination);
+    src.start(0);
+    return await offlineCtx.startRendering();
+  }
+
+  function audioBufferToWav(buffer){
+    const numChannels = buffer.numberOfChannels;
+    const sampleRate = buffer.sampleRate;
+    const bitDepth = 16;
+    const bytesPerSample = bitDepth/8;
+    const blockAlign = numChannels * bytesPerSample;
+    let interleaved;
+    if (numChannels === 2){
+      const left = buffer.getChannelData(0);
+      const right = buffer.getChannelData(1);
+      interleaved = new Float32Array(left.length + right.length);
+      for (let i=0, j=0; i<left.length; i++){
+        interleaved[j++] = left[i];
+        interleaved[j++] = right[i];
+      }
+    } else {
+      interleaved = buffer.getChannelData(0);
+    }
+    const dataLength = interleaved.length * bytesPerSample;
+    const arrBuffer = new ArrayBuffer(44 + dataLength);
+    const view = new DataView(arrBuffer);
+    function writeString(offset, str){ for (let i=0;i<str.length;i++) view.setUint8(offset+i, str.charCodeAt(i)); }
+    writeString(0,'RIFF'); view.setUint32(4, 36+dataLength, true); writeString(8,'WAVE');
+    writeString(12,'fmt '); view.setUint32(16,16,true); view.setUint16(20,1,true);
+    view.setUint16(22,numChannels,true); view.setUint32(24,sampleRate,true);
+    view.setUint32(28,sampleRate*blockAlign,true); view.setUint16(32,blockAlign,true);
+    view.setUint16(34,bitDepth,true); writeString(36,'data'); view.setUint32(40,dataLength,true);
+    let offset=44;
+    for (let i=0;i<interleaved.length;i++,offset+=2){
+      let s = Math.max(-1, Math.min(1, interleaved[i]));
+      view.setInt16(offset, s<0?s*0x8000:s*0x7FFF, true);
+    }
+    return new Blob([arrBuffer], {type:'audio/wav'});
+  }
+
+  function floatTo16BitPCM(input){
+    const output = new Int16Array(input.length);
+    for (let i=0;i<input.length;i++){
+      let s = Math.max(-1, Math.min(1, input[i]));
+      output[i] = s<0?s*0x8000:s*0x7FFF;
+    }
+    return output;
+  }
+
+  function audioBufferToMp3(buffer, bitrate){
+    const channels = buffer.numberOfChannels >= 2 ? 2 : 1;
+    const sampleRate = buffer.sampleRate;
+    const mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, bitrate);
+    const sampleBlockSize = 1152;
+    const mp3Data = [];
+    const left16 = floatTo16BitPCM(buffer.getChannelData(0));
+    const right16 = channels===2 ? floatTo16BitPCM(buffer.getChannelData(1)) : null;
+    for (let i=0;i<left16.length;i+=sampleBlockSize){
+      const leftChunk = left16.subarray(i,i+sampleBlockSize);
+      let mp3buf;
+      if (channels===2){
+        const rightChunk = right16.subarray(i,i+sampleBlockSize);
+        mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
+      } else {
+        mp3buf = mp3encoder.encodeBuffer(leftChunk);
+      }
+      if (mp3buf.length>0) mp3Data.push(new Int8Array(mp3buf));
+    }
+    const finalBuf = mp3encoder.flush();
+    if (finalBuf.length>0) mp3Data.push(new Int8Array(finalBuf));
+    return new Blob(mp3Data, {type:'audio/mp3'});
+  }
+
+  mergeBtn.addEventListener('click', async () => {
+    if (files.length < 2) return;
+    mergeBtn.disabled = true;
+    progressWrap.classList.add('active');
+    resultBox.classList.remove('active');
+    progressFill.style.width = '10%';
+    progressLabel.textContent = 'Decoding files...';
+
+    try {
+      const decoded = [];
+      for (const f of files){
+        const arrBuf = await f.arrayBuffer();
+        const buf = await audioCtx.decodeAudioData(arrBuf);
+        decoded.push(buf);
+      }
+
+      progressFill.style.width = '40%';
+      progressLabel.textContent = 'Matching formats...';
+
+      const targetRate = Math.max(...decoded.map(b => b.sampleRate));
+      const targetChannels = Math.max(...decoded.map(b => b.numberOfChannels), 1) > 1 ? 2 : 1;
+
+      const normalized = [];
+      for (const buf of decoded){
+        normalized.push(await resampleBuffer(buf, targetRate, targetChannels));
+      }
+
+      progressFill.style.width = '65%';
+      progressLabel.textContent = 'Joining audio...';
+
+      const totalLength = normalized.reduce((sum, b) => sum + b.length, 0);
+      const finalBuffer = audioCtx.createBuffer(targetChannels, totalLength, targetRate);
+
+      for (let ch = 0; ch < targetChannels; ch++){
+        const out = finalBuffer.getChannelData(ch);
+        let offset = 0;
+        for (const buf of normalized){
+          out.set(buf.getChannelData(ch), offset);
+          offset += buf.length;
+        }
+      }
+
+      progressFill.style.width = '85%';
+      progressLabel.textContent = 'Encoding...';
+
+      let blob, ext;
+      if (formatSelect.value === 'wav'){
+        blob = audioBufferToWav(finalBuffer);
+        ext = 'wav';
+      } else {
+        blob = audioBufferToMp3(finalBuffer, 192);
+        ext = 'mp3';
+      }
+
+      progressFill.style.width = '100%';
+      progressLabel.textContent = 'Done!';
+
+      const url = URL.createObjectURL(blob);
+      downloadBtn.href = url;
+      downloadBtn.download = 'merged-audio.' + ext;
+
+      setTimeout(() => {
+        progressWrap.classList.remove('active');
+        resultBox.classList.add('active');
+        mergeBtn.disabled = false;
+      }, 300);
+    } catch (err){
+      progressLabel.textContent = 'Something went wrong. Please check your files and try again.';
+      mergeBtn.disabled = false;
+      console.error(err);
+    }
+  });
+</script>
+
+</body>
+</html>

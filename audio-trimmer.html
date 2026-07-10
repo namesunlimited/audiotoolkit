@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Online Audio Trimmer & Cutter – AudioToolkit</title>
+<meta name="description" content="Trim or cut any audio file free online. Select the exact part you want with a visual waveform, preview it, and download instantly. No upload, 100% private." />
+<meta name="keywords" content="audio trimmer, audio cutter, cut audio online, trim mp3 online, free audio trimmer" />
+<link rel="canonical" href="https://audiotoolkit.netlify.app/audio-trimmer.html" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AudioToolkit" />
+<meta property="og:title" content="Free Online Audio Trimmer & Cutter – AudioToolkit" />
+<meta property="og:description" content="Trim or cut any audio file free online with a visual waveform. No upload to servers, 100% private." />
+<meta property="og:url" content="https://audiotoolkit.netlify.app/audio-trimmer.html" />
+<meta property="og:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Online Audio Trimmer & Cutter – AudioToolkit" />
+<meta name="twitter:description" content="Trim or cut any audio file free online with a visual waveform. No upload to servers, 100% private." />
+<meta name="twitter:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Audio Trimmer & Cutter",
+  "url": "https://audiotoolkit.netlify.app/audio-trimmer.html",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "description": "Trim or cut any audio file free online, entirely in your browser.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is this audio trimmer safe and private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your audio file is processed entirely inside your browser and is never uploaded to a server."}},
+    {"@type":"Question","name":"Can I preview my trimmed audio before downloading?","acceptedAnswer":{"@type":"Answer","text":"Yes, use the Play Selection button to hear exactly what will be exported before you download it."}},
+    {"@type":"Question","name":"Will trimming reduce the audio quality?","acceptedAnswer":{"@type":"Answer","text":"No. Trimming only removes the parts outside your selection — it doesn't re-compress or alter the sound of the part you keep, unless you choose an MP3 export at a lower bitrate."}},
+    {"@type":"Question","name":"How precise is the trimming?","acceptedAnswer":{"@type":"Answer","text":"You can drag the handles on the waveform for quick adjustments, or fine-tune using the exact time fields for second-level precision."}},
+    {"@type":"Question","name":"What file formats can I export?","acceptedAnswer":{"@type":"Answer","text":"You can export your trimmed clip as WAV (lossless) or MP3 (compressed, smaller file size)."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111827; --bg2:#1A2333; --green:#10B981; --green2:#059669; --cyan:#22D3EE;
+  --white:#FFFFFF; --slate:#9CA3AF; --border:#293449; --card:#1A2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+
+.breadcrumb{padding:14px 5% 0;font-size:.82rem;color:var(--slate);max-width:1100px;margin:0 auto}
+.breadcrumb a{color:var(--cyan);text-decoration:none}
+
+.hero{padding:64px 5% 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--slate);font-size:1.05rem;max-width:540px;margin:0 auto}
+
+.tool-section{padding:40px 5% 70px}
+.tool-box{max-width:700px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:34px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+
+.upload-zone{border:2px dashed rgba(16,185,129,0.4);border-radius:18px;padding:44px 24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(16,185,129,0.04)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--green);background:rgba(16,185,129,0.08)}
+.upload-zone input{display:none}
+.upload-icon{width:56px;height:56px;margin:0 auto 16px;background:linear-gradient(135deg,var(--green),var(--cyan));border-radius:50%;display:flex;align-items:center;justify-content:center}
+.upload-icon svg{width:26px;height:26px;stroke:#0B1120;fill:none;stroke-width:2.4}
+.upload-zone h3{font-size:1.05rem;font-weight:700;margin-bottom:5px;color:var(--white)}
+.upload-zone p{color:var(--slate);font-size:.85rem}
+
+.file-info{display:none;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:20px}
+.file-info.active{display:flex}
+.file-info .fname{font-weight:700;font-size:.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--white)}
+.file-info .fsize{color:var(--slate);font-size:.8rem}
+
+.control-panel{display:none;margin-top:22px}
+.control-panel.active{display:block}
+
+.waveform-wrap{position:relative;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:18px}
+#waveformCanvas{width:100%;height:120px;display:block;cursor:pointer}
+.handle{position:absolute;top:14px;bottom:14px;width:14px;margin-left:-7px;cursor:ew-resize;z-index:5}
+.handle::before{content:'';position:absolute;top:0;bottom:0;left:6px;width:2px;background:var(--cyan)}
+.handle::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:14px;height:24px;background:var(--cyan);border-radius:4px}
+.selection-overlay{position:absolute;top:14px;bottom:14px;background:rgba(16,185,129,0.18);pointer-events:none;z-index:2}
+
+.time-row{display:flex;justify-content:space-between;font-size:.82rem;color:var(--slate);margin-bottom:18px;font-weight:600}
+.time-row span{color:var(--cyan)}
+
+.btn-row{display:flex;gap:10px;margin-bottom:18px}
+.btn-secondary{flex:1;background:var(--bg);border:1.5px solid var(--border);color:var(--white);border-radius:12px;padding:12px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;transition:border-color .2s}
+.btn-secondary:hover{border-color:var(--cyan)}
+
+.control-group{margin-bottom:20px}
+.control-group label{display:block;font-size:.85rem;font-weight:700;margin-bottom:9px;color:var(--white)}
+select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:inherit;background:var(--bg);color:var(--white)}
+
+.btn-convert{width:100%;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;border:none;border-radius:14px;padding:15px;font-weight:800;font-size:.98rem;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
+.btn-convert:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,185,129,0.3)}
+.btn-convert:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+.progress-wrap{display:none;margin-top:18px}
+.progress-wrap.active{display:block}
+.progress-bar{height:9px;background:var(--border);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:0%;transition:width .15s;border-radius:100px}
+.progress-label{font-size:.8rem;color:var(--slate);margin-top:7px;text-align:center;font-weight:600}
+
+.result-box{display:none;margin-top:20px;text-align:center;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:18px;padding:24px}
+.result-box.active{display:block}
+.result-box h3{font-size:1.02rem;font-weight:700;margin-bottom:14px;color:var(--white)}
+.btn-download{display:inline-block;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;text-decoration:none;font-weight:800;padding:13px 30px;border-radius:14px;font-size:.92rem}
+
+.reset-link{display:block;text-align:center;margin-top:16px;font-size:.85rem;color:var(--slate);cursor:pointer;font-weight:600}
+.reset-link:hover{color:var(--cyan)}
+
+section.content{padding:20px 5% 60px}
+.content-wrap{max-width:740px;margin:0 auto}
+.section-block{padding:34px 0;border-bottom:1px solid var(--border)}
+.section-block:last-child{border-bottom:none}
+.section-block h2{font-size:clamp(1.2rem,2.5vw,1.5rem);font-weight:800;letter-spacing:-.4px;margin-bottom:14px;color:var(--white)}
+.section-block h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px;color:var(--cyan)}
+.section-block p{color:#CBD5E1;font-size:.97rem;margin-bottom:12px}
+.section-block p:last-child{margin-bottom:0}
+.section-block ul{margin:0 0 12px 20px;color:#CBD5E1;font-size:.97rem}
+.section-block li{margin-bottom:6px}
+.section-block strong{color:var(--white)}
+
+.faq-section{background:var(--bg2);padding:60px 5%}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:17px 22px;font-weight:700;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+.faq-arrow{transition:transform .2s;color:var(--green)}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 22px;font-size:.9rem;color:#CBD5E1}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+
+footer{background:#0B111F;color:var(--slate);text-align:center;padding:38px 5%;border-top:1px solid var(--border)}
+.footer-logo{color:var(--white);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:var(--slate);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+footer p{font-size:.82rem}
+
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Audio<span>Toolkit</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#tools">All Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Audio Trimmer</div>
+
+<section class="hero">
+  <div class="hero-badge">Free · Private · No Login</div>
+  <h1>Audio Trimmer <span>&amp; Cutter</span></h1>
+  <p>Cut out exactly the part of an audio file you need. Drag the handles on the waveform, preview it, and download — all in your browser.</p>
+</section>
+
+<section class="tool-section">
+  <div class="tool-box">
+
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" accept="audio/*" />
+      <div class="upload-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      </div>
+      <h3>Click or drag an audio file here</h3>
+      <p>Supports MP3, WAV, M4A, AAC, OGG</p>
+    </div>
+
+    <div class="file-info" id="fileInfo">
+      <div style="flex:1;overflow:hidden">
+        <div class="fname" id="fname"></div>
+        <div class="fsize" id="fsize"></div>
+      </div>
+    </div>
+
+    <div class="control-panel" id="controlPanel">
+
+      <div class="waveform-wrap">
+        <canvas id="waveformCanvas"></canvas>
+        <div class="selection-overlay" id="selectionOverlay"></div>
+        <div class="handle" id="handleStart"></div>
+        <div class="handle" id="handleEnd"></div>
+      </div>
+
+      <div class="time-row">
+        <div>Start: <span id="startLabel">0:00</span></div>
+        <div>Selection: <span id="durLabel">0:00</span></div>
+        <div>End: <span id="endLabel">0:00</span></div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" id="playBtn">▶ Play Selection</button>
+        <button class="btn-secondary" id="resetSelectionBtn">Reset Selection</button>
+      </div>
+
+      <div class="control-group">
+        <label>Export format</label>
+        <select id="formatSelect">
+          <option value="wav">WAV (lossless, original quality)</option>
+          <option value="mp3">MP3 (compressed, smaller file)</option>
+        </select>
+      </div>
+
+      <button class="btn-convert" id="trimBtn">Trim &amp; Download</button>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Processing...</div>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <h3>Your trimmed clip is ready!</h3>
+        <a class="btn-download" id="downloadBtn" download>Download File</a>
+      </div>
+
+      <span class="reset-link" id="resetLink">Start over with a new file</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="content">
+  <div class="content-wrap">
+
+    <div class="section-block">
+      <h2>Free Online Audio Trimmer &amp; Cutter</h2>
+      <p>Whether you're pulling a favorite 30 seconds out of a longer recording, removing dead air from the start of a voice memo, or cutting a clip down to fit a specific length, trimming audio is one of the most common small edits people need to make. This tool lets you do it visually — see the waveform, drag the start and end points exactly where you want them, and export just that section.</p>
+      <p>There's nothing to install and nothing to upload. The entire process — reading your file, drawing the waveform, cutting the selection, and exporting the result — happens using your browser's own audio engine.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>How to Trim an Audio File</h2>
+      <ul>
+        <li><strong>Upload your file.</strong> Click the upload area or drag your audio file in. The waveform will appear automatically once it's decoded.</li>
+        <li><strong>Drag the handles.</strong> Two handles appear on the waveform — one for the start point, one for the end point. Drag either one to adjust your selection.</li>
+        <li><strong>Preview it.</strong> Use "Play Selection" to hear exactly what you're about to export, so you can fine-tune the cut before committing to it.</li>
+        <li><strong>Choose a format and download.</strong> Pick WAV for lossless quality or MP3 for a smaller file, then hit "Trim & Download."</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>Why Trim Visually Instead of by Typing Timestamps?</h2>
+      <p>Typing in exact start and end times sounds precise, but it's slow — you usually end up guessing, listening back, and adjusting the numbers several times before it's right. Seeing the actual waveform makes this much faster: quiet sections show up as flat, low-amplitude stretches, while speech or music shows up as visibly denser waves. That means you can often spot exactly where a sentence starts or a song's intro ends just by looking, without needing to listen through the whole file first.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Common Reasons to Trim Audio</h2>
+      <ul>
+        <li>Cutting a highlight or quote out of a longer podcast episode or interview</li>
+        <li>Removing silence or throat-clearing from the start or end of a voice recording</li>
+        <li>Creating a short clip from a song for a video, presentation, or social media post</li>
+        <li>Shortening a voice memo down to just the relevant part before sharing it</li>
+        <li>Preparing a sound effect or notification tone from a longer audio source</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>WAV vs. MP3 for Your Trimmed Clip</h2>
+      <p>If your trimmed clip is headed into further editing — say, into a video project or a Digital Audio Workstation — export as WAV to keep it lossless and avoid stacking compression on top of compression. If the clip is in its final form and you just need something easy to share or upload, MP3 keeps the file size small without a noticeable quality difference for most listening situations.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Tips for a Clean Cut</h2>
+      <ul>
+        <li>Zoom your attention on the waveform near your cut points — a cut placed mid-word or mid-note is far more noticeable than one placed in a natural pause</li>
+        <li>Always preview your selection with "Play Selection" before exporting, especially for spoken-word content where an abrupt cut can sound jarring</li>
+        <li>If you need multiple clips from the same file, trim and download one at a time, then re-upload the original for the next cut</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is this audio trimmer safe and private? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Yes. Your audio file is processed entirely inside your browser and is never uploaded to a server.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I preview my trimmed audio before downloading? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Yes, use the Play Selection button to hear exactly what will be exported before you download it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Will trimming reduce the audio quality? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. Trimming only removes the parts outside your selection — it doesn't re-compress or alter the sound of the part you keep, unless you choose an MP3 export at a lower bitrate.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How precise is the trimming? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">You can drag the handles on the waveform for quick adjustments, letting you get a precise cut visually without typing timestamps.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What file formats can I export? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">You can export your trimmed clip as WAV (lossless) or MP3 (compressed, smaller file size).</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Audio<span>Toolkit</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p>© 2026 AudioToolkit. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script>
+  function toggleFaq(el){
+    el.parentElement.classList.toggle('open');
+  }
+
+  const uploadZone = document.getElementById('uploadZone');
+  const fileInput = document.getElementById('fileInput');
+  const fileInfo = document.getElementById('fileInfo');
+  const fname = document.getElementById('fname');
+  const fsize = document.getElementById('fsize');
+  const controlPanel = document.getElementById('controlPanel');
+  const canvas = document.getElementById('waveformCanvas');
+  const ctx2d = canvas.getContext('2d');
+  const waveformWrap = document.querySelector('.waveform-wrap');
+  const handleStart = document.getElementById('handleStart');
+  const handleEnd = document.getElementById('handleEnd');
+  const selectionOverlay = document.getElementById('selectionOverlay');
+  const startLabel = document.getElementById('startLabel');
+  const endLabel = document.getElementById('endLabel');
+  const durLabel = document.getElementById('durLabel');
+  const playBtn = document.getElementById('playBtn');
+  const resetSelectionBtn = document.getElementById('resetSelectionBtn');
+  const formatSelect = document.getElementById('formatSelect');
+  const trimBtn = document.getElementById('trimBtn');
+  const progressWrap = document.getElementById('progressWrap');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const resultBox = document.getElementById('resultBox');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetLink = document.getElementById('resetLink');
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContextClass();
+
+  let currentFile = null;
+  let audioBuffer = null;
+  let selStart = 0, selEnd = 0;
+  let dragging = null;
+  let playSource = null;
+
+  uploadZone.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', e => {
+    if (e.target.files.length) handleFile(e.target.files[0]);
+  });
+
+  async function handleFile(file){
+    currentFile = file;
+    fname.textContent = file.name;
+    fsize.textContent = (file.size/1024/1024).toFixed(2) + ' MB';
+    fileInfo.classList.add('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+
+    const arrayBuffer = await file.arrayBuffer();
+    audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+    selStart = 0;
+    selEnd = audioBuffer.duration;
+
+    controlPanel.classList.add('active');
+    requestAnimationFrame(() => {
+      drawWaveform();
+      updateHandles();
+    });
+  }
+
+  function drawWaveform(){
+    const dpr = window.devicePixelRatio || 1;
+    const w = waveformWrap.clientWidth - 28;
+    const h = 120;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx2d.scale(dpr, dpr);
+
+    const data = audioBuffer.getChannelData(0);
+    const step = Math.ceil(data.length / w);
+    const amp = h / 2;
+
+    ctx2d.clearRect(0,0,w,h);
+    ctx2d.fillStyle = '#10B981';
+    for (let i=0; i<w; i++){
+      let min = 1.0, max = -1.0;
+      for (let j=0; j<step; j++){
+        const idx = i*step+j;
+        if (idx >= data.length) break;
+        const v = data[idx];
+        if (v < min) min = v;
+        if (v > max) max = v;
+      }
+      ctx2d.fillRect(i, (1+min)*amp, 1, Math.max(1,(max-min)*amp));
+    }
+  }
+
+  function timeToX(t){
+    const w = waveformWrap.clientWidth - 28;
+    return 14 + (t / audioBuffer.duration) * w;
+  }
+  function xToTime(x){
+    const w = waveformWrap.clientWidth - 28;
+    const rel = Math.max(0, Math.min(w, x - 14));
+    return (rel / w) * audioBuffer.duration;
+  }
+  function fmt(t){
+    t = Math.max(0, t);
+    const m = Math.floor(t/60);
+    const s = Math.floor(t%60);
+    return m + ':' + String(s).padStart(2,'0');
+  }
+
+  function updateHandles(){
+    const xStart = timeToX(selStart);
+    const xEnd = timeToX(selEnd);
+    handleStart.style.left = xStart + 'px';
+    handleEnd.style.left = xEnd + 'px';
+    selectionOverlay.style.left = xStart + 'px';
+    selectionOverlay.style.width = Math.max(0, xEnd - xStart) + 'px';
+    startLabel.textContent = fmt(selStart);
+    endLabel.textContent = fmt(selEnd);
+    durLabel.textContent = fmt(selEnd - selStart);
+  }
+
+  function startDrag(which){
+    return (e) => {
+      dragging = which;
+      e.preventDefault();
+    };
+  }
+  handleStart.addEventListener('mousedown', startDrag('start'));
+  handleEnd.addEventListener('mousedown', startDrag('end'));
+  handleStart.addEventListener('touchstart', startDrag('start'));
+  handleEnd.addEventListener('touchstart', startDrag('end'));
+
+  function moveHandler(clientX){
+    if (!dragging || !audioBuffer) return;
+    const rect = waveformWrap.getBoundingClientRect();
+    const t = xToTime(clientX - rect.left);
+    if (dragging === 'start'){
+      selStart = Math.min(t, selEnd - 0.05);
+      selStart = Math.max(0, selStart);
+    } else {
+      selEnd = Math.max(t, selStart + 0.05);
+      selEnd = Math.min(audioBuffer.duration, selEnd);
+    }
+    updateHandles();
+  }
+  window.addEventListener('mousemove', e => moveHandler(e.clientX));
+  window.addEventListener('touchmove', e => { if (dragging) moveHandler(e.touches[0].clientX); });
+  window.addEventListener('mouseup', () => dragging = null);
+  window.addEventListener('touchend', () => dragging = null);
+  window.addEventListener('resize', () => { if (audioBuffer){ drawWaveform(); updateHandles(); }});
+
+  resetSelectionBtn.addEventListener('click', () => {
+    if (!audioBuffer) return;
+    selStart = 0;
+    selEnd = audioBuffer.duration;
+    updateHandles();
+  });
+
+  playBtn.addEventListener('click', () => {
+    if (!audioBuffer) return;
+    if (playSource){ playSource.stop(); playSource = null; }
+    playSource = audioCtx.createBufferSource();
+    playSource.buffer = audioBuffer;
+    playSource.connect(audioCtx.destination);
+    playSource.start(0, selStart, Math.max(0.01, selEnd - selStart));
+    playBtn.textContent = '⏸ Playing...';
+    playSource.onended = () => { playBtn.textContent = '▶ Play Selection'; };
+  });
+
+  resetLink.addEventListener('click', () => {
+    currentFile = null;
+    audioBuffer = null;
+    fileInput.value = '';
+    fileInfo.classList.remove('active');
+    controlPanel.classList.remove('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+  });
+
+  function sliceBuffer(buffer, start, end){
+    const sampleRate = buffer.sampleRate;
+    const startSample = Math.floor(start * sampleRate);
+    const endSample = Math.floor(end * sampleRate);
+    const length = endSample - startSample;
+    const newBuffer = audioCtx.createBuffer(buffer.numberOfChannels, length, sampleRate);
+    for (let ch=0; ch<buffer.numberOfChannels; ch++){
+      const src = buffer.getChannelData(ch).subarray(startSample, endSample);
+      newBuffer.copyToChannel(new Float32Array(src), ch);
+    }
+    return newBuffer;
+  }
+
+  function audioBufferToWav(buffer){
+    const numChannels = buffer.numberOfChannels;
+    const sampleRate = buffer.sampleRate;
+    const bitDepth = 16;
+    const bytesPerSample = bitDepth/8;
+    const blockAlign = numChannels * bytesPerSample;
+    let interleaved;
+    if (numChannels === 2){
+      const left = buffer.getChannelData(0);
+      const right = buffer.getChannelData(1);
+      interleaved = new Float32Array(left.length + right.length);
+      for (let i=0, j=0; i<left.length; i++){
+        interleaved[j++] = left[i];
+        interleaved[j++] = right[i];
+      }
+    } else {
+      interleaved = buffer.getChannelData(0);
+    }
+    const dataLength = interleaved.length * bytesPerSample;
+    const arrBuffer = new ArrayBuffer(44 + dataLength);
+    const view = new DataView(arrBuffer);
+    function writeString(offset, str){ for (let i=0;i<str.length;i++) view.setUint8(offset+i, str.charCodeAt(i)); }
+    writeString(0,'RIFF'); view.setUint32(4, 36+dataLength, true); writeString(8,'WAVE');
+    writeString(12,'fmt '); view.setUint32(16,16,true); view.setUint16(20,1,true);
+    view.setUint16(22,numChannels,true); view.setUint32(24,sampleRate,true);
+    view.setUint32(28,sampleRate*blockAlign,true); view.setUint16(32,blockAlign,true);
+    view.setUint16(34,bitDepth,true); writeString(36,'data'); view.setUint32(40,dataLength,true);
+    let offset=44;
+    for (let i=0;i<interleaved.length;i++,offset+=2){
+      let s = Math.max(-1, Math.min(1, interleaved[i]));
+      view.setInt16(offset, s<0?s*0x8000:s*0x7FFF, true);
+    }
+    return new Blob([arrBuffer], {type:'audio/wav'});
+  }
+
+  function floatTo16BitPCM(input){
+    const output = new Int16Array(input.length);
+    for (let i=0;i<input.length;i++){
+      let s = Math.max(-1, Math.min(1, input[i]));
+      output[i] = s<0?s*0x8000:s*0x7FFF;
+    }
+    return output;
+  }
+
+  function audioBufferToMp3(buffer, bitrate){
+    const channels = buffer.numberOfChannels >= 2 ? 2 : 1;
+    const sampleRate = buffer.sampleRate;
+    const mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, bitrate);
+    const sampleBlockSize = 1152;
+    const mp3Data = [];
+    const left16 = floatTo16BitPCM(buffer.getChannelData(0));
+    const right16 = channels===2 ? floatTo16BitPCM(buffer.getChannelData(1)) : null;
+    for (let i=0;i<left16.length;i+=sampleBlockSize){
+      const leftChunk = left16.subarray(i,i+sampleBlockSize);
+      let mp3buf;
+      if (channels===2){
+        const rightChunk = right16.subarray(i,i+sampleBlockSize);
+        mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
+      } else {
+        mp3buf = mp3encoder.encodeBuffer(leftChunk);
+      }
+      if (mp3buf.length>0) mp3Data.push(new Int8Array(mp3buf));
+    }
+    const finalBuf = mp3encoder.flush();
+    if (finalBuf.length>0) mp3Data.push(new Int8Array(finalBuf));
+    return new Blob(mp3Data, {type:'audio/mp3'});
+  }
+
+  trimBtn.addEventListener('click', async () => {
+    if (!audioBuffer) return;
+    trimBtn.disabled = true;
+    progressWrap.classList.add('active');
+    resultBox.classList.remove('active');
+    progressFill.style.width = '25%';
+    progressLabel.textContent = 'Cutting selection...';
+
+    try {
+      const trimmed = sliceBuffer(audioBuffer, selStart, selEnd);
+      progressFill.style.width = '60%';
+      progressLabel.textContent = 'Encoding...';
+
+      let blob, ext;
+      if (formatSelect.value === 'wav'){
+        blob = audioBufferToWav(trimmed);
+        ext = 'wav';
+      } else {
+        blob = audioBufferToMp3(trimmed, 192);
+        ext = 'mp3';
+      }
+
+      progressFill.style.width = '100%';
+      progressLabel.textContent = 'Done!';
+
+      const url = URL.createObjectURL(blob);
+      const baseName = currentFile.name.replace(/\.[^/.]+$/, '');
+      downloadBtn.href = url;
+      downloadBtn.download = baseName + '-trimmed.' + ext;
+
+      setTimeout(() => {
+        progressWrap.classList.remove('active');
+        resultBox.classList.add('active');
+        trimBtn.disabled = false;
+      }, 300);
+    } catch (err){
+      progressLabel.textContent = 'Something went wrong. Please try a different file.';
+      trimBtn.disabled = false;
+      console.error(err);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Online Audio Speed Changer – Speed Up or Slow Down Audio – AudioToolkit</title>
+<meta name="description" content="Change the playback speed of any audio file free online, with or without changing pitch. Speed up or slow down audio instantly in your browser. 100% private." />
+<meta name="keywords" content="audio speed changer, speed up audio online, slow down audio online, change audio speed free, tempo changer" />
+<link rel="canonical" href="https://audiotoolkit.netlify.app/audio-speed-changer.html" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AudioToolkit" />
+<meta property="og:title" content="Free Online Audio Speed Changer – Speed Up or Slow Down Audio – AudioToolkit" />
+<meta property="og:description" content="Change the playback speed of any audio file free online, with or without changing pitch. Runs entirely in your browser." />
+<meta property="og:url" content="https://audiotoolkit.netlify.app/audio-speed-changer.html" />
+<meta property="og:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Online Audio Speed Changer – Speed Up or Slow Down Audio – AudioToolkit" />
+<meta name="twitter:description" content="Change the playback speed of any audio file free online, with or without changing pitch. Runs entirely in your browser." />
+<meta name="twitter:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Audio Speed Changer",
+  "url": "https://audiotoolkit.netlify.app/audio-speed-changer.html",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "description": "Speed up or slow down any audio file free online, with or without changing pitch, entirely in your browser.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Can I change speed without changing the pitch?","acceptedAnswer":{"@type":"Answer","text":"Yes. Turn on 'Preserve Pitch' and the tool will keep the pitch the same while still speeding up or slowing down the playback."}},
+    {"@type":"Question","name":"What speed range can I use?","acceptedAnswer":{"@type":"Answer","text":"You can slow audio down to half speed (0.5x) or speed it up to double speed (2x), with fine control in between."}},
+    {"@type":"Question","name":"Why does pitch-preserved audio sometimes sound slightly different?","acceptedAnswer":{"@type":"Answer","text":"Preserving pitch while changing speed requires reconstructing the audio in small overlapping segments, which can introduce minor artifacts, especially at extreme speed settings. Moderate speed changes (0.75x-1.5x) usually sound cleanest."}},
+    {"@type":"Question","name":"Is my audio file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All processing happens locally in your browser. Your file is never uploaded to a server."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111827; --bg2:#1A2333; --green:#10B981; --green2:#059669; --cyan:#22D3EE;
+  --white:#FFFFFF; --slate:#9CA3AF; --border:#293449; --card:#1A2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+
+.breadcrumb{padding:14px 5% 0;font-size:.82rem;color:var(--slate);max-width:1100px;margin:0 auto}
+.breadcrumb a{color:var(--cyan);text-decoration:none}
+
+.hero{padding:64px 5% 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--slate);font-size:1.05rem;max-width:540px;margin:0 auto}
+
+.tool-section{padding:40px 5% 70px}
+.tool-box{max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:34px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+
+.upload-zone{border:2px dashed rgba(16,185,129,0.4);border-radius:18px;padding:44px 24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(16,185,129,0.04)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--green);background:rgba(16,185,129,0.08)}
+.upload-zone input{display:none}
+.upload-icon{width:56px;height:56px;margin:0 auto 16px;background:linear-gradient(135deg,var(--green),var(--cyan));border-radius:50%;display:flex;align-items:center;justify-content:center}
+.upload-icon svg{width:26px;height:26px;stroke:#0B1120;fill:none;stroke-width:2.4}
+.upload-zone h3{font-size:1.05rem;font-weight:700;margin-bottom:5px;color:var(--white)}
+.upload-zone p{color:var(--slate);font-size:.85rem}
+
+.file-info{display:none;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:20px}
+.file-info.active{display:flex}
+.file-info .fname{font-weight:700;font-size:.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--white)}
+.file-info .fsize{color:var(--slate);font-size:.8rem}
+
+.control-panel{display:none;margin-top:22px}
+.control-panel.active{display:block}
+
+.speed-display{text-align:center;margin-bottom:14px}
+.speed-display .big{font-size:2.4rem;font-weight:800;color:var(--cyan)}
+.speed-display .lbl{font-size:.8rem;color:var(--slate);font-weight:600}
+
+.preset-row{display:flex;gap:6px;margin-bottom:16px}
+.preset-btn{flex:1;padding:9px 4px;border:1.5px solid var(--border);border-radius:10px;background:var(--bg);color:var(--white);cursor:pointer;font-size:.78rem;font-weight:700;text-align:center;transition:all .15s}
+.preset-btn.active{background:linear-gradient(135deg,var(--green),var(--green2));border-color:var(--green)}
+
+input[type=range]{width:100%;accent-color:var(--green);margin-bottom:20px}
+
+.toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:20px}
+.toggle-row .lbl-main{font-weight:700;font-size:.9rem;color:var(--white)}
+.toggle-row .lbl-sub{font-size:.76rem;color:var(--slate)}
+.switch{position:relative;width:44px;height:24px;flex-shrink:0}
+.switch input{opacity:0;width:0;height:0}
+.slider-toggle{position:absolute;cursor:pointer;inset:0;background:var(--border);border-radius:100px;transition:.2s}
+.slider-toggle::before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:white;border-radius:50%;transition:.2s}
+input:checked + .slider-toggle{background:var(--green)}
+input:checked + .slider-toggle::before{transform:translateX(20px)}
+
+.btn-row{display:flex;gap:10px;margin-bottom:18px}
+.btn-secondary{flex:1;background:var(--bg);border:1.5px solid var(--border);color:var(--white);border-radius:12px;padding:12px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;transition:border-color .2s}
+.btn-secondary:hover{border-color:var(--cyan)}
+
+.control-group{margin-bottom:20px}
+.control-group label{display:block;font-size:.85rem;font-weight:700;margin-bottom:9px;color:var(--white)}
+select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:inherit;background:var(--bg);color:var(--white)}
+
+.btn-convert{width:100%;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;border:none;border-radius:14px;padding:15px;font-weight:800;font-size:.98rem;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
+.btn-convert:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,185,129,0.3)}
+.btn-convert:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+.progress-wrap{display:none;margin-top:18px}
+.progress-wrap.active{display:block}
+.progress-bar{height:9px;background:var(--border);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:0%;transition:width .15s;border-radius:100px}
+.progress-label{font-size:.8rem;color:var(--slate);margin-top:7px;text-align:center;font-weight:600}
+
+.result-box{display:none;margin-top:20px;text-align:center;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:18px;padding:24px}
+.result-box.active{display:block}
+.result-box h3{font-size:1.02rem;font-weight:700;margin-bottom:14px;color:var(--white)}
+.btn-download{display:inline-block;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;text-decoration:none;font-weight:800;padding:13px 30px;border-radius:14px;font-size:.92rem}
+
+.reset-link{display:block;text-align:center;margin-top:16px;font-size:.85rem;color:var(--slate);cursor:pointer;font-weight:600}
+.reset-link:hover{color:var(--cyan)}
+
+section.content{padding:20px 5% 60px}
+.content-wrap{max-width:740px;margin:0 auto}
+.section-block{padding:34px 0;border-bottom:1px solid var(--border)}
+.section-block:last-child{border-bottom:none}
+.section-block h2{font-size:clamp(1.2rem,2.5vw,1.5rem);font-weight:800;letter-spacing:-.4px;margin-bottom:14px;color:var(--white)}
+.section-block h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px;color:var(--cyan)}
+.section-block p{color:#CBD5E1;font-size:.97rem;margin-bottom:12px}
+.section-block p:last-child{margin-bottom:0}
+.section-block ul{margin:0 0 12px 20px;color:#CBD5E1;font-size:.97rem}
+.section-block li{margin-bottom:6px}
+.section-block strong{color:var(--white)}
+
+.faq-section{background:var(--bg2);padding:60px 5%}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:17px 22px;font-weight:700;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+.faq-arrow{transition:transform .2s;color:var(--green)}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 22px;font-size:.9rem;color:#CBD5E1}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+
+footer{background:#0B111F;color:var(--slate);text-align:center;padding:38px 5%;border-top:1px solid var(--border)}
+.footer-logo{color:var(--white);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:var(--slate);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+footer p{font-size:.82rem}
+
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Audio<span>Toolkit</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#tools">All Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Audio Speed Changer</div>
+
+<section class="hero">
+  <div class="hero-badge">Free · Private · No Login</div>
+  <h1>Audio Speed <span>Changer</span></h1>
+  <p>Speed up or slow down any audio file, with or without changing pitch. All processed right in your browser.</p>
+</section>
+
+<section class="tool-section">
+  <div class="tool-box">
+
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" accept="audio/*" />
+      <div class="upload-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>Click or drag an audio file here</h3>
+      <p>Supports MP3, WAV, M4A, AAC, OGG</p>
+    </div>
+
+    <div class="file-info" id="fileInfo">
+      <div style="flex:1;overflow:hidden">
+        <div class="fname" id="fname"></div>
+        <div class="fsize" id="fsize"></div>
+      </div>
+    </div>
+
+    <div class="control-panel" id="controlPanel">
+
+      <div class="speed-display">
+        <div class="big" id="speedBig">1.0x</div>
+        <div class="lbl">Playback Speed</div>
+      </div>
+
+      <div class="preset-row">
+        <div class="preset-btn" data-speed="0.5">0.5x</div>
+        <div class="preset-btn" data-speed="0.75">0.75x</div>
+        <div class="preset-btn active" data-speed="1">1x</div>
+        <div class="preset-btn" data-speed="1.25">1.25x</div>
+        <div class="preset-btn" data-speed="1.5">1.5x</div>
+        <div class="preset-btn" data-speed="2">2x</div>
+      </div>
+
+      <input type="range" id="speedSlider" min="0.5" max="2" step="0.05" value="1" />
+
+      <div class="toggle-row">
+        <div>
+          <div class="lbl-main">Preserve Pitch</div>
+          <div class="lbl-sub">Keep voice/music pitch natural</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="preserveToggle" checked>
+          <span class="slider-toggle"></span>
+        </label>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" id="previewBtn">▶ Preview</button>
+      </div>
+
+      <div class="control-group">
+        <label>Export format</label>
+        <select id="formatSelect">
+          <option value="wav">WAV (lossless, original quality)</option>
+          <option value="mp3">MP3 (compressed, smaller file)</option>
+        </select>
+      </div>
+
+      <button class="btn-convert" id="applyBtn">Apply &amp; Download</button>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Processing...</div>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <h3>Your file is ready!</h3>
+        <a class="btn-download" id="downloadBtn" download>Download File</a>
+      </div>
+
+      <span class="reset-link" id="resetLink">Start over with a new file</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="content">
+  <div class="content-wrap">
+
+    <div class="section-block">
+      <h2>Free Online Audio Speed Changer</h2>
+      <p>Sometimes you want to get through a long recording faster — a lecture, a podcast, a meeting you're catching up on. Other times you want the opposite: slowing something down to catch every word, learn a musical passage, or transcribe a fast talker accurately. This tool handles both directions, from half-speed up to double-speed, and can keep the pitch natural even at the extremes so a sped-up voice doesn't sound like a chipmunk.</p>
+      <p>Everything happens locally in your browser — your audio file is read from your device, processed, and handed back as a download without ever being uploaded anywhere.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Preserve Pitch vs. Natural Pitch Shift</h2>
+      <p>There are two different ways to change playback speed, and they sound quite different:</p>
+      <h3>Preserve Pitch (recommended for most uses)</h3>
+      <p>This mode changes how fast the audio plays without changing how high or low it sounds — a sped-up voice still sounds like a normal voice, just talking faster. It works by reconstructing the audio in small overlapping segments and reassembling them at the new speed, which keeps pitch natural but can introduce very slight artifacts, especially at more extreme speed settings.</p>
+      <h3>Natural Pitch Shift (Preserve Pitch turned off)</h3>
+      <p>This mode works exactly like speeding up or slowing down a tape or record — pitch rises when you speed up, and drops when you slow down. It's simpler and introduces no processing artifacts, but a voice sped up this way will sound noticeably higher-pitched, which isn't always desirable.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Common Uses for Changing Audio Speed</h2>
+      <ul>
+        <li><strong>Faster listening:</strong> Getting through long podcasts, lectures, or meeting recordings at 1.25x-1.5x speed without losing comprehension</li>
+        <li><strong>Transcription:</strong> Slowing a recording down to 0.75x or 0.5x to catch every word accurately while typing it out</li>
+        <li><strong>Language learning:</strong> Slowing down native-speed audio to practice listening comprehension at a manageable pace</li>
+        <li><strong>Music practice:</strong> Slowing down a song to learn a fast passage note-by-note, without shifting it out of its original key</li>
+        <li><strong>Content editing:</strong> Fitting a voiceover or clip into a specific time slot by nudging its speed slightly</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>Choosing the Right Speed</h2>
+      <p>For most spoken-word content, 1.25x to 1.5x speed is the sweet spot for faster listening without losing clarity — most people adjust to this range within a few minutes. Going beyond 1.75x usually starts to feel rushed and can reduce comprehension. For slowing things down, 0.75x is a gentle reduction useful for tricky sections, while 0.5x is better suited to detailed transcription or note-for-note music practice, where you need maximum clarity over natural pacing.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Tips for Best Results</h2>
+      <ul>
+        <li>Keep "Preserve Pitch" on for spoken-word content — an unnaturally high or low voice is harder to understand, which defeats the purpose of the adjustment</li>
+        <li>For music practice, try turning "Preserve Pitch" on so you can slow a song down without it sounding out of tune with the sheet music or your instrument</li>
+        <li>Preview your selected speed before committing — moderate settings (0.75x-1.5x) tend to sound cleanest with pitch preservation</li>
+        <li>If the pitch-preserved result sounds slightly off at extreme speeds, try a less aggressive setting closer to 1x</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I change speed without changing the pitch? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Yes. Turn on 'Preserve Pitch' and the tool will keep the pitch the same while still speeding up or slowing down the playback.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What speed range can I use? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">You can slow audio down to half speed (0.5x) or speed it up to double speed (2x), with fine control in between.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why does pitch-preserved audio sometimes sound slightly different? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Preserving pitch while changing speed requires reconstructing the audio in small overlapping segments, which can introduce minor artifacts, especially at extreme speed settings. Moderate speed changes (0.75x-1.5x) usually sound cleanest.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my audio file uploaded anywhere? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. All processing happens locally in your browser. Your file is never uploaded to a server.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Audio<span>Toolkit</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p>© 2026 AudioToolkit. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script>
+  function toggleFaq(el){ el.parentElement.classList.toggle('open'); }
+
+  const uploadZone = document.getElementById('uploadZone');
+  const fileInput = document.getElementById('fileInput');
+  const fileInfo = document.getElementById('fileInfo');
+  const fname = document.getElementById('fname');
+  const fsize = document.getElementById('fsize');
+  const controlPanel = document.getElementById('controlPanel');
+  const speedBig = document.getElementById('speedBig');
+  const presetBtns = document.querySelectorAll('.preset-btn');
+  const speedSlider = document.getElementById('speedSlider');
+  const preserveToggle = document.getElementById('preserveToggle');
+  const previewBtn = document.getElementById('previewBtn');
+  const formatSelect = document.getElementById('formatSelect');
+  const applyBtn = document.getElementById('applyBtn');
+  const progressWrap = document.getElementById('progressWrap');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const resultBox = document.getElementById('resultBox');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetLink = document.getElementById('resetLink');
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContextClass();
+
+  let currentFile = null;
+  let audioBuffer = null;
+  let speed = 1;
+  let playSource = null;
+
+  uploadZone.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', e => { if (e.target.files.length) handleFile(e.target.files[0]); });
+
+  async function handleFile(file){
+    currentFile = file;
+    fname.textContent = file.name;
+    fsize.textContent = (file.size/1024/1024).toFixed(2) + ' MB';
+    fileInfo.classList.add('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+
+    const arrayBuffer = await file.arrayBuffer();
+    audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+    controlPanel.classList.add('active');
+  }
+
+  function setSpeed(v){
+    speed = v;
+    speedBig.textContent = v.toFixed(2).replace(/\.?0+$/,'') + 'x';
+    speedSlider.value = v;
+    presetBtns.forEach(b => b.classList.toggle('active', Math.abs(parseFloat(b.dataset.speed) - v) < 0.001));
+  }
+
+  presetBtns.forEach(btn => {
+    btn.addEventListener('click', () => setSpeed(parseFloat(btn.dataset.speed)));
+  });
+  speedSlider.addEventListener('input', () => setSpeed(parseFloat(speedSlider.value)));
+
+  resetLink.addEventListener('click', () => {
+    currentFile = null;
+    audioBuffer = null;
+    fileInput.value = '';
+    fileInfo.classList.remove('active');
+    controlPanel.classList.remove('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+  });
+
+  // Simple resample: changes speed AND pitch together (like tape speed)
+  function resampleSpeed(buffer, spd){
+    const newLength = Math.max(1, Math.floor(buffer.length / spd));
+    const out = audioCtx.createBuffer(buffer.numberOfChannels, newLength, buffer.sampleRate);
+    for (let ch=0; ch<buffer.numberOfChannels; ch++){
+      const input = buffer.getChannelData(ch);
+      const output = out.getChannelData(ch);
+      for (let i=0;i<newLength;i++){
+        const srcPos = i*spd;
+        const idx = Math.floor(srcPos);
+        const frac = srcPos - idx;
+        const s0 = input[idx] || 0;
+        const s1 = input[idx+1] || 0;
+        output[i] = s0 + (s1-s0)*frac;
+      }
+    }
+    return out;
+  }
+
+  // Overlap-add time stretch: changes speed while preserving pitch
+  function timeStretchOLA(buffer, spd){
+    const windowSize = 4096;
+    const hopA = Math.floor(windowSize/4);
+    const hopS = Math.max(1, Math.round(hopA / spd));
+    const numChannels = buffer.numberOfChannels;
+    const outputLength = Math.max(windowSize*2, Math.floor(buffer.length / spd));
+    const padded = audioCtx.createBuffer(numChannels, outputLength + windowSize*2, buffer.sampleRate);
+
+    const win = new Float32Array(windowSize);
+    for (let i=0;i<windowSize;i++) win[i] = 0.5 - 0.5*Math.cos(2*Math.PI*i/(windowSize-1));
+
+    for (let ch=0; ch<numChannels; ch++){
+      const input = buffer.getChannelData(ch);
+      const output = padded.getChannelData(ch);
+      const weight = new Float32Array(output.length);
+      let inPos = 0, outPos = 0;
+      while (inPos + windowSize < input.length && outPos + windowSize < output.length){
+        for (let i=0;i<windowSize;i++){
+          output[outPos+i] += input[inPos+i]*win[i];
+          weight[outPos+i] += win[i];
+        }
+        inPos += hopA;
+        outPos += hopS;
+      }
+      for (let i=0;i<output.length;i++){
+        if (weight[i] > 1e-6) output[i] /= weight[i];
+      }
+    }
+
+    const trimmed = audioCtx.createBuffer(numChannels, Math.floor(buffer.length/spd), buffer.sampleRate);
+    for (let ch=0; ch<numChannels; ch++){
+      trimmed.getChannelData(ch).set(padded.getChannelData(ch).subarray(0, trimmed.length));
+    }
+    return trimmed;
+  }
+
+  function processBuffer(buffer, spd, preservePitch){
+    if (Math.abs(spd - 1) < 0.001) return buffer;
+    return preservePitch ? timeStretchOLA(buffer, spd) : resampleSpeed(buffer, spd);
+  }
+
+  previewBtn.addEventListener('click', () => {
+    if (!audioBuffer) return;
+    if (playSource){ playSource.stop(); playSource = null; }
+    previewBtn.textContent = '⏳ Preparing...';
+    setTimeout(() => {
+      const processed = processBuffer(audioBuffer, speed, preserveToggle.checked);
+      playSource = audioCtx.createBufferSource();
+      playSource.buffer = processed;
+      playSource.connect(audioCtx.destination);
+      playSource.start(0, 0, Math.min(15, processed.duration));
+      previewBtn.textContent = '⏸ Playing preview...';
+      playSource.onended = () => { previewBtn.textContent = '▶ Preview'; };
+    }, 30);
+  });
+
+  function audioBufferToWav(buffer){
+    const numChannels = buffer.numberOfChannels;
+    const sampleRate = buffer.sampleRate;
+    const bitDepth = 16;
+    const bytesPerSample = bitDepth/8;
+    const blockAlign = numChannels * bytesPerSample;
+    let interleaved;
+    if (numChannels === 2){
+      const left = buffer.getChannelData(0);
+      const right = buffer.getChannelData(1);
+      interleaved = new Float32Array(left.length + right.length);
+      for (let i=0, j=0; i<left.length; i++){
+        interleaved[j++] = left[i];
+        interleaved[j++] = right[i];
+      }
+    } else {
+      interleaved = buffer.getChannelData(0);
+    }
+    const dataLength = interleaved.length * bytesPerSample;
+    const arrBuffer = new ArrayBuffer(44 + dataLength);
+    const view = new DataView(arrBuffer);
+    function writeString(offset, str){ for (let i=0;i<str.length;i++) view.setUint8(offset+i, str.charCodeAt(i)); }
+    writeString(0,'RIFF'); view.setUint32(4, 36+dataLength, true); writeString(8,'WAVE');
+    writeString(12,'fmt '); view.setUint32(16,16,true); view.setUint16(20,1,true);
+    view.setUint16(22,numChannels,true); view.setUint32(24,sampleRate,true);
+    view.setUint32(28,sampleRate*blockAlign,true); view.setUint16(32,blockAlign,true);
+    view.setUint16(34,bitDepth,true); writeString(36,'data'); view.setUint32(40,dataLength,true);
+    let offset=44;
+    for (let i=0;i<interleaved.length;i++,offset+=2){
+      let s = Math.max(-1, Math.min(1, interleaved[i]));
+      view.setInt16(offset, s<0?s*0x8000:s*0x7FFF, true);
+    }
+    return new Blob([arrBuffer], {type:'audio/wav'});
+  }
+
+  function floatTo16BitPCM(input){
+    const output = new Int16Array(input.length);
+    for (let i=0;i<input.length;i++){
+      let s = Math.max(-1, Math.min(1, input[i]));
+      output[i] = s<0?s*0x8000:s*0x7FFF;
+    }
+    return output;
+  }
+
+  function audioBufferToMp3(buffer, bitrate){
+    const channels = buffer.numberOfChannels >= 2 ? 2 : 1;
+    const sampleRate = buffer.sampleRate;
+    const mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, bitrate);
+    const sampleBlockSize = 1152;
+    const mp3Data = [];
+    const left16 = floatTo16BitPCM(buffer.getChannelData(0));
+    const right16 = channels===2 ? floatTo16BitPCM(buffer.getChannelData(1)) : null;
+    for (let i=0;i<left16.length;i+=sampleBlockSize){
+      const leftChunk = left16.subarray(i,i+sampleBlockSize);
+      let mp3buf;
+      if (channels===2){
+        const rightChunk = right16.subarray(i,i+sampleBlockSize);
+        mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
+      } else {
+        mp3buf = mp3encoder.encodeBuffer(leftChunk);
+      }
+      if (mp3buf.length>0) mp3Data.push(new Int8Array(mp3buf));
+    }
+    const finalBuf = mp3encoder.flush();
+    if (finalBuf.length>0) mp3Data.push(new Int8Array(finalBuf));
+    return new Blob(mp3Data, {type:'audio/mp3'});
+  }
+
+  applyBtn.addEventListener('click', async () => {
+    if (!audioBuffer) return;
+    applyBtn.disabled = true;
+    progressWrap.classList.add('active');
+    resultBox.classList.remove('active');
+    progressFill.style.width = '20%';
+    progressLabel.textContent = 'Changing speed...';
+
+    try {
+      await new Promise(r => setTimeout(r, 30));
+      const processed = processBuffer(audioBuffer, speed, preserveToggle.checked);
+
+      progressFill.style.width = '65%';
+      progressLabel.textContent = 'Encoding...';
+
+      let blob, ext;
+      if (formatSelect.value === 'wav'){
+        blob = audioBufferToWav(processed);
+        ext = 'wav';
+      } else {
+        blob = audioBufferToMp3(processed, 192);
+        ext = 'mp3';
+      }
+
+      progressFill.style.width = '100%';
+      progressLabel.textContent = 'Done!';
+
+      const url = URL.createObjectURL(blob);
+      const baseName = currentFile.name.replace(/\.[^/.]+$/, '');
+      downloadBtn.href = url;
+      downloadBtn.download = baseName + '-' + speed + 'x.' + ext;
+
+      setTimeout(() => {
+        progressWrap.classList.remove('active');
+        resultBox.classList.add('active');
+        applyBtn.disabled = false;
+      }, 300);
+    } catch (err){
+      progressLabel.textContent = 'Something went wrong. Please try a different file.';
+      applyBtn.disabled = false;
+      console.error(err);
+    }
+  });
+</script>
+
+</body>
+</html>

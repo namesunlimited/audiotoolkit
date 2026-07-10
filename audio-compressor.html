@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Online Audio Compressor – Reduce Audio File Size – AudioToolkit</title>
+<meta name="description" content="Compress audio files free online to reduce file size without a big quality drop. No upload to servers — everything runs in your browser. Fast and private." />
+<meta name="keywords" content="audio compressor, reduce audio file size, compress mp3 online, shrink audio file, free audio compressor" />
+<link rel="canonical" href="https://audiotoolkit.netlify.app/audio-compressor.html" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AudioToolkit" />
+<meta property="og:title" content="Free Online Audio Compressor – Reduce Audio File Size – AudioToolkit" />
+<meta property="og:description" content="Compress audio files free online to reduce file size without a big quality drop. Runs entirely in your browser." />
+<meta property="og:url" content="https://audiotoolkit.netlify.app/audio-compressor.html" />
+<meta property="og:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Online Audio Compressor – Reduce Audio File Size – AudioToolkit" />
+<meta name="twitter:description" content="Compress audio files free online to reduce file size without a big quality drop. Runs entirely in your browser." />
+<meta name="twitter:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Audio Compressor",
+  "url": "https://audiotoolkit.netlify.app/audio-compressor.html",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "description": "Compress audio files free online to reduce file size, entirely in your browser.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How does an audio compressor reduce file size?","acceptedAnswer":{"@type":"Answer","text":"It re-encodes your audio at a lower bitrate, which uses less data per second of sound. This shrinks the file size, with a trade-off in audio detail that becomes more noticeable at very low bitrates."}},
+    {"@type":"Question","name":"What bitrate should I use to compress audio?","acceptedAnswer":{"@type":"Answer","text":"96-128 kbps works well for voice recordings and podcasts. For music, 128-192 kbps keeps a good balance between size and quality."}},
+    {"@type":"Question","name":"Will compressing my audio file multiple times ruin the quality?","acceptedAnswer":{"@type":"Answer","text":"Yes, repeatedly compressing an already-compressed file causes quality to degrade further each time. Always compress from the original, highest-quality source file you have."}},
+    {"@type":"Question","name":"Is my audio file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. The entire compression process happens locally in your browser. Your file is never sent to a server."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111827; --bg2:#1A2333; --green:#10B981; --green2:#059669; --cyan:#22D3EE;
+  --white:#FFFFFF; --slate:#9CA3AF; --border:#293449; --card:#1A2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+
+.breadcrumb{padding:14px 5% 0;font-size:.82rem;color:var(--slate);max-width:1100px;margin:0 auto}
+.breadcrumb a{color:var(--cyan);text-decoration:none}
+
+.hero{padding:64px 5% 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--slate);font-size:1.05rem;max-width:540px;margin:0 auto}
+
+.tool-section{padding:40px 5% 70px}
+.tool-box{max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:34px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+
+.upload-zone{border:2px dashed rgba(16,185,129,0.4);border-radius:18px;padding:44px 24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(16,185,129,0.04)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--green);background:rgba(16,185,129,0.08)}
+.upload-zone input{display:none}
+.upload-icon{width:56px;height:56px;margin:0 auto 16px;background:linear-gradient(135deg,var(--green),var(--cyan));border-radius:50%;display:flex;align-items:center;justify-content:center}
+.upload-icon svg{width:26px;height:26px;stroke:#0B1120;fill:none;stroke-width:2.4}
+.upload-zone h3{font-size:1.05rem;font-weight:700;margin-bottom:5px;color:var(--white)}
+.upload-zone p{color:var(--slate);font-size:.85rem}
+
+.file-info{display:none;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:20px}
+.file-info.active{display:flex}
+.file-info .fname{font-weight:700;font-size:.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--white)}
+.file-info .fsize{color:var(--slate);font-size:.8rem}
+
+.control-panel{display:none;margin-top:22px}
+.control-panel.active{display:block}
+.control-group{margin-bottom:20px}
+.control-group label{display:block;font-size:.85rem;font-weight:700;margin-bottom:9px;color:var(--white)}
+
+.level-row{display:flex;gap:8px}
+.level-btn{flex:1;padding:14px 6px;border:1.5px solid var(--border);border-radius:12px;background:var(--bg);color:var(--white);cursor:pointer;transition:all .15s;text-align:center}
+.level-btn.active{background:linear-gradient(135deg,var(--green),var(--green2));border-color:var(--green)}
+.level-btn .lvl-title{font-size:.85rem;font-weight:800;margin-bottom:2px}
+.level-btn .lvl-sub{font-size:.72rem;color:var(--slate)}
+.level-btn.active .lvl-sub{color:rgba(255,255,255,0.85)}
+
+.estimate-box{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-top:14px;display:flex;justify-content:space-between;font-size:.85rem}
+.estimate-box .label{color:var(--slate)}
+.estimate-box .value{color:var(--cyan);font-weight:700}
+
+.btn-convert{width:100%;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;border:none;border-radius:14px;padding:15px;font-weight:800;font-size:.98rem;cursor:pointer;transition:transform .15s,box-shadow .15s;margin-top:20px;font-family:inherit}
+.btn-convert:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,185,129,0.3)}
+.btn-convert:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+.progress-wrap{display:none;margin-top:18px}
+.progress-wrap.active{display:block}
+.progress-bar{height:9px;background:var(--border);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:0%;transition:width .15s;border-radius:100px}
+.progress-label{font-size:.8rem;color:var(--slate);margin-top:7px;text-align:center;font-weight:600}
+
+.result-box{display:none;margin-top:20px;text-align:center;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:18px;padding:24px}
+.result-box.active{display:block}
+.result-box h3{font-size:1.02rem;font-weight:700;margin-bottom:6px;color:var(--white)}
+.result-box .savings{font-size:.85rem;color:var(--cyan);margin-bottom:14px;font-weight:700}
+.btn-download{display:inline-block;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;text-decoration:none;font-weight:800;padding:13px 30px;border-radius:14px;font-size:.92rem}
+
+.reset-link{display:block;text-align:center;margin-top:16px;font-size:.85rem;color:var(--slate);cursor:pointer;font-weight:600}
+.reset-link:hover{color:var(--cyan)}
+
+section.content{padding:20px 5% 60px}
+.content-wrap{max-width:740px;margin:0 auto}
+.section-block{padding:34px 0;border-bottom:1px solid var(--border)}
+.section-block:last-child{border-bottom:none}
+.section-block h2{font-size:clamp(1.2rem,2.5vw,1.5rem);font-weight:800;letter-spacing:-.4px;margin-bottom:14px;color:var(--white)}
+.section-block h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px;color:var(--cyan)}
+.section-block p{color:#CBD5E1;font-size:.97rem;margin-bottom:12px}
+.section-block p:last-child{margin-bottom:0}
+.section-block ul{margin:0 0 12px 20px;color:#CBD5E1;font-size:.97rem}
+.section-block li{margin-bottom:6px}
+.section-block strong{color:var(--white)}
+.compare-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem}
+.compare-table th,.compare-table td{border:1px solid var(--border);padding:9px 12px;text-align:left;color:#CBD5E1}
+.compare-table th{background:var(--bg2);color:var(--white)}
+
+.faq-section{background:var(--bg2);padding:60px 5%}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:17px 22px;font-weight:700;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+.faq-arrow{transition:transform .2s;color:var(--green)}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 22px;font-size:.9rem;color:#CBD5E1}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+
+footer{background:#0B111F;color:var(--slate);text-align:center;padding:38px 5%;border-top:1px solid var(--border)}
+.footer-logo{color:var(--white);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:var(--slate);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+footer p{font-size:.82rem}
+
+@media(max-width:600px){.nav-links{display:none}.level-row{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Audio<span>Toolkit</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#tools">All Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Audio Compressor</div>
+
+<section class="hero">
+  <div class="hero-badge">Free · Private · No Login</div>
+  <h1>Audio Compressor <span>Online for Free</span></h1>
+  <p>Shrink any audio file's size in seconds. Pick a compression level, and the rest happens instantly in your browser.</p>
+</section>
+
+<section class="tool-section">
+  <div class="tool-box">
+
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" accept="audio/*" />
+      <div class="upload-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Click or drag an audio file here</h3>
+      <p>Supports MP3, WAV, M4A, AAC, OGG</p>
+    </div>
+
+    <div class="file-info" id="fileInfo">
+      <div style="flex:1;overflow:hidden">
+        <div class="fname" id="fname"></div>
+        <div class="fsize" id="fsize"></div>
+      </div>
+    </div>
+
+    <div class="control-panel" id="controlPanel">
+      <div class="control-group">
+        <label>Compression level</label>
+        <div class="level-row">
+          <div class="level-btn" data-bitrate="96">
+            <div class="lvl-title">High</div>
+            <div class="lvl-sub">96 kbps</div>
+          </div>
+          <div class="level-btn active" data-bitrate="128">
+            <div class="lvl-title">Balanced</div>
+            <div class="lvl-sub">128 kbps</div>
+          </div>
+          <div class="level-btn" data-bitrate="192">
+            <div class="lvl-title">Light</div>
+            <div class="lvl-sub">192 kbps</div>
+          </div>
+        </div>
+        <div class="estimate-box">
+          <span class="label">Estimated output size</span>
+          <span class="value" id="estimateValue">—</span>
+        </div>
+      </div>
+
+      <button class="btn-convert" id="compressBtn">Compress Audio</button>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Processing...</div>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <h3>Your compressed file is ready!</h3>
+        <div class="savings" id="savingsLabel"></div>
+        <a class="btn-download" id="downloadBtn" download>Download File</a>
+      </div>
+
+      <span class="reset-link" id="resetLink">Start over with a new file</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="content">
+  <div class="content-wrap">
+
+    <div class="section-block">
+      <h2>Free Online Audio Compressor</h2>
+      <p>Large audio files cause real friction — they're slow to upload, they eat into email attachment limits, and some platforms reject them outright once they cross a size threshold. Compressing an audio file re-encodes it at a lower bitrate, shrinking the file size while keeping it perfectly playable, with a quality trade-off that's often barely noticeable depending on how far you compress it.</p>
+      <p>This tool does the entire compression process locally in your browser. Nothing is uploaded to a server — you pick a compression level, and the file is re-encoded and handed back to you as a download, usually in just a few seconds.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>How Audio Compression Works</h2>
+      <p>Audio files store sound as data, and bitrate controls how much data is used per second of audio. A high bitrate (say, 320 kbps) captures more detail but takes up more space. Lowering the bitrate — to 128 kbps or 96 kbps — removes some of that detail, in ways engineered to be as unnoticeable as possible to human hearing, and in exchange produces a much smaller file.</p>
+      <p>This tool re-encodes your audio using the same MP3 compression standard used across virtually every device and platform, so the compressed file will play back anywhere your original did.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Choosing a Compression Level</h2>
+      <table class="compare-table">
+        <tr><th>Level</th><th>Bitrate</th><th>Best For</th></tr>
+        <tr><td>High Compression</td><td>96 kbps</td><td>Voice memos, spoken word, maximum size savings</td></tr>
+        <tr><td>Balanced</td><td>128 kbps</td><td>Podcasts, general music, everyday sharing</td></tr>
+        <tr><td>Light Compression</td><td>192 kbps</td><td>Music where quality matters more than size</td></tr>
+      </table>
+      <p>If you're not sure which to pick, "Balanced" at 128 kbps is a safe default — it noticeably shrinks file size while keeping music and speech sounding clear on typical speakers and headphones.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>When You'd Want to Compress Audio</h2>
+      <ul>
+        <li>Sending a voice recording or podcast episode over email, where attachment size limits are common</li>
+        <li>Uploading audio to a platform with strict file size or storage limits</li>
+        <li>Reducing storage space used by a large personal audio library</li>
+        <li>Speeding up how quickly a file uploads or transfers over a slow connection</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>A Note on Repeated Compression</h2>
+      <p>Because MP3 compression is "lossy" — it permanently discards some audio detail to save space — compressing the same file multiple times causes quality to degrade further with each pass, similar to repeatedly photocopying a photocopy. Always compress from your original, highest-quality file rather than an already-compressed copy, and keep a backup of the original in case you need it later.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How does an audio compressor reduce file size? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">It re-encodes your audio at a lower bitrate, which uses less data per second of sound. This shrinks the file size, with a trade-off in audio detail that becomes more noticeable at very low bitrates.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What bitrate should I use to compress audio? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">96-128 kbps works well for voice recordings and podcasts. For music, 128-192 kbps keeps a good balance between size and quality.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Will compressing my audio file multiple times ruin the quality? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Yes, repeatedly compressing an already-compressed file causes quality to degrade further each time. Always compress from the original, highest-quality source file you have.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my audio file uploaded anywhere? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. The entire compression process happens locally in your browser. Your file is never sent to a server.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Audio<span>Toolkit</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p>© 2026 AudioToolkit. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script>
+  function toggleFaq(el){ el.parentElement.classList.toggle('open'); }
+
+  const uploadZone = document.getElementById('uploadZone');
+  const fileInput = document.getElementById('fileInput');
+  const fileInfo = document.getElementById('fileInfo');
+  const fname = document.getElementById('fname');
+  const fsize = document.getElementById('fsize');
+  const controlPanel = document.getElementById('controlPanel');
+  const levelBtns = document.querySelectorAll('.level-btn');
+  const estimateValue = document.getElementById('estimateValue');
+  const compressBtn = document.getElementById('compressBtn');
+  const progressWrap = document.getElementById('progressWrap');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const resultBox = document.getElementById('resultBox');
+  const savingsLabel = document.getElementById('savingsLabel');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetLink = document.getElementById('resetLink');
+
+  let currentFile = null;
+  let audioDuration = null;
+  let selectedBitrate = 128;
+
+  uploadZone.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', e => {
+    if (e.target.files.length) handleFile(e.target.files[0]);
+  });
+
+  async function handleFile(file){
+    currentFile = file;
+    fname.textContent = file.name;
+    fsize.textContent = (file.size/1024/1024).toFixed(2) + ' MB';
+    fileInfo.classList.add('active');
+    controlPanel.classList.add('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      const tempCtx = new AudioContextClass();
+      const buf = await tempCtx.decodeAudioData(arrayBuffer.slice(0));
+      audioDuration = buf.duration;
+      updateEstimate();
+    } catch(e){
+      audioDuration = null;
+      estimateValue.textContent = '—';
+    }
+  }
+
+  function updateEstimate(){
+    if (!audioDuration) { estimateValue.textContent = '—'; return; }
+    const estBytes = (selectedBitrate * 1000 / 8) * audioDuration;
+    estimateValue.textContent = (estBytes/1024/1024).toFixed(2) + ' MB';
+  }
+
+  levelBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      levelBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedBitrate = parseInt(btn.dataset.bitrate, 10);
+      updateEstimate();
+    });
+  });
+
+  resetLink.addEventListener('click', () => {
+    currentFile = null;
+    audioDuration = null;
+    fileInput.value = '';
+    fileInfo.classList.remove('active');
+    controlPanel.classList.remove('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+  });
+
+  function floatTo16BitPCM(input){
+    const output = new Int16Array(input.length);
+    for (let i=0;i<input.length;i++){
+      let s = Math.max(-1, Math.min(1, input[i]));
+      output[i] = s<0?s*0x8000:s*0x7FFF;
+    }
+    return output;
+  }
+
+  function audioBufferToMp3(buffer, bitrate){
+    const channels = buffer.numberOfChannels >= 2 ? 2 : 1;
+    const sampleRate = buffer.sampleRate;
+    const mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, bitrate);
+    const sampleBlockSize = 1152;
+    const mp3Data = [];
+    const left16 = floatTo16BitPCM(buffer.getChannelData(0));
+    const right16 = channels===2 ? floatTo16BitPCM(buffer.getChannelData(1)) : null;
+    for (let i=0;i<left16.length;i+=sampleBlockSize){
+      const leftChunk = left16.subarray(i,i+sampleBlockSize);
+      let mp3buf;
+      if (channels===2){
+        const rightChunk = right16.subarray(i,i+sampleBlockSize);
+        mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
+      } else {
+        mp3buf = mp3encoder.encodeBuffer(leftChunk);
+      }
+      if (mp3buf.length>0) mp3Data.push(new Int8Array(mp3buf));
+    }
+    const finalBuf = mp3encoder.flush();
+    if (finalBuf.length>0) mp3Data.push(new Int8Array(finalBuf));
+    return new Blob(mp3Data, {type:'audio/mp3'});
+  }
+
+  compressBtn.addEventListener('click', async () => {
+    if (!currentFile) return;
+    compressBtn.disabled = true;
+    progressWrap.classList.add('active');
+    resultBox.classList.remove('active');
+    progressFill.style.width = '15%';
+    progressLabel.textContent = 'Reading file...';
+
+    try {
+      const arrayBuffer = await currentFile.arrayBuffer();
+      progressFill.style.width = '35%';
+      progressLabel.textContent = 'Decoding audio...';
+
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContextClass();
+      const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+
+      progressFill.style.width = '60%';
+      progressLabel.textContent = 'Compressing...';
+
+      const blob = audioBufferToMp3(audioBuffer, selectedBitrate);
+
+      progressFill.style.width = '100%';
+      progressLabel.textContent = 'Done!';
+
+      const originalSize = currentFile.size;
+      const newSize = blob.size;
+      const pctSaved = Math.max(0, Math.round((1 - newSize/originalSize) * 100));
+      savingsLabel.textContent = pctSaved + '% smaller (' + (newSize/1024/1024).toFixed(2) + ' MB vs ' + (originalSize/1024/1024).toFixed(2) + ' MB)';
+
+      const url = URL.createObjectURL(blob);
+      const baseName = currentFile.name.replace(/\.[^/.]+$/, '');
+      downloadBtn.href = url;
+      downloadBtn.download = baseName + '-compressed.mp3';
+
+      setTimeout(() => {
+        progressWrap.classList.remove('active');
+        resultBox.classList.add('active');
+        compressBtn.disabled = false;
+      }, 300);
+    } catch (err){
+      progressLabel.textContent = 'Something went wrong. Please try a different file.';
+      compressBtn.disabled = false;
+      console.error(err);
+    }
+  });
+</script>
+
+</body>
+</html>
