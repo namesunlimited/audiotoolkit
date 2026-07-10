@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AudioToolkit – Free Online Audio Tools</title>
+<meta name="description" content="Free online audio tools. Convert, trim, compress, merge, boost volume, and change speed of your audio files instantly in your browser. No upload to servers, 100% private." />
+<meta name="keywords" content="audio tools online, free audio converter, audio editor online, audio trimmer, audio compressor" />
+<link rel="canonical" href="https://audiotoolkit.netlify.app/" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AudioToolkit" />
+<meta property="og:title" content="AudioToolkit – Free Online Audio Tools" />
+<meta property="og:description" content="Convert, trim, compress, merge, boost volume, and change speed of your audio files instantly in your browser. 100% private." />
+<meta property="og:url" content="https://audiotoolkit.netlify.app/" />
+<meta property="og:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AudioToolkit – Free Online Audio Tools" />
+<meta name="twitter:description" content="Convert, trim, compress, merge, boost volume, and change speed of your audio files instantly in your browser." />
+<meta name="twitter:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AudioToolkit",
+  "url": "https://audiotoolkit.netlify.app/",
+  "description": "Free online audio tools. Convert, trim, compress, merge, boost volume, and change speed of your audio files instantly in your browser."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AudioToolkit",
+  "url": "https://audiotoolkit.netlify.app/",
+  "logo": "https://audiotoolkit.netlify.app/favicon-32x32.png"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111827; --bg2:#1A2333; --green:#10B981; --green2:#059669; --cyan:#22D3EE;
+  --white:#FFFFFF; --slate:#9CA3AF; --border:#293449; --card:#1A2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+
+.hero{padding:80px 5% 50px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:22px}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:18px}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--slate);font-size:1.08rem;max-width:560px;margin:0 auto 40px}
+
+.upload-cta{max-width:560px;margin:0 auto;border:2px dashed rgba(16,185,129,0.4);border-radius:20px;padding:44px 32px;background:rgba(16,185,129,0.05);text-decoration:none;display:block;transition:all .2s}
+.upload-cta:hover{border-color:var(--green);background:rgba(16,185,129,0.09);transform:translateY(-2px)}
+.upload-icon{width:56px;height:56px;margin:0 auto 14px;background:linear-gradient(135deg,var(--green),var(--cyan));border-radius:50%;display:flex;align-items:center;justify-content:center}
+.upload-icon svg{width:26px;height:26px;stroke:#0B1120;fill:none;stroke-width:2.2}
+.upload-cta h3{color:var(--white);font-size:1.08rem;font-weight:700;margin-bottom:6px}
+.upload-cta p{color:var(--slate);font-size:.87rem}
+
+section{padding:64px 5%}
+.section-label{text-align:center;color:var(--green);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+section h2{text-align:center;font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:800;letter-spacing:-.5px;margin-bottom:44px;color:var(--white)}
+
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;max-width:1100px;margin:0 auto}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 20px;text-decoration:none;color:var(--white);transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;flex-direction:column;gap:10px}
+.tool-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(16,185,129,0.15);border-color:var(--green)}
+.tool-icon{width:44px;height:44px;background:rgba(16,185,129,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.tool-icon svg{width:22px;height:22px;stroke:var(--green);fill:none;stroke-width:2}
+.tool-card h3{font-size:.98rem;font-weight:700}
+.tool-card p{font-size:.83rem;color:var(--slate)}
+
+.soon-note{text-align:center;color:var(--slate);font-size:.9rem;max-width:600px;margin:32px auto 0}
+.soon-note strong{color:var(--cyan)}
+
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;max-width:860px;margin:0 auto}
+.how-step{text-align:center}
+.step-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;font-size:1.1rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.how-step h3{font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--white)}
+.how-step p{color:var(--slate);font-size:.88rem}
+
+.why-section{background:var(--bg2)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:1000px;margin:0 auto}
+.why-card{border:1px solid var(--border);border-radius:14px;padding:24px;display:flex;gap:14px;align-items:flex-start;background:var(--card)}
+.why-dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:6px}
+.why-card h3{font-size:.95rem;font-weight:700;margin-bottom:4px;color:var(--white)}
+.why-card p{font-size:.85rem;color:var(--slate)}
+
+footer{background:#0B111F;color:var(--slate);text-align:center;padding:38px 5%;border-top:1px solid var(--border)}
+.footer-logo{color:var(--white);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:var(--slate);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+footer p{font-size:.82rem}
+
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Audio<span>Toolkit</span></a>
+  <ul class="nav-links">
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Free · Private · No Login</div>
+  <h1>Audio Tools <span>Right in Your Browser</span></h1>
+  <p>Convert, trim, compress, merge, boost, and speed up your audio files. No uploads to servers — everything runs locally, instantly, for free.</p>
+
+  <a href="audio-converter.html" class="upload-cta">
+    <div class="upload-icon">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    </div>
+    <h3>Start with Audio Converter</h3>
+    <p>Click to open our most popular tool — or scroll down to see all tools</p>
+  </a>
+</section>
+
+<section id="tools">
+  <div class="section-label">Everything You Need</div>
+  <h2>Free Audio Tools</h2>
+  <div class="tools-grid">
+
+    <a href="audio-converter.html" class="tool-card">
+      <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+      <h3>Audio Converter</h3>
+      <p>Convert audio to MP3 or WAV instantly.</p>
+    </a>
+
+    <a href="audio-trimmer.html" class="tool-card">
+      <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></div>
+      <h3>Audio Trimmer &amp; Cutter</h3>
+      <p>Cut exactly the part you need with a visual waveform.</p>
+    </a>
+
+    <a href="audio-compressor.html" class="tool-card">
+      <div class="tool-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <h3>Audio Compressor</h3>
+      <p>Shrink file size without a big quality drop.</p>
+    </a>
+
+    <a href="merge-audio.html" class="tool-card">
+      <div class="tool-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></div>
+      <h3>Merge Audio Files</h3>
+      <p>Combine multiple files into one, in any order.</p>
+    </a>
+
+    <a href="volume-booster.html" class="tool-card">
+      <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 010 7.07"/></svg></div>
+      <h3>Volume Booster &amp; Normalizer</h3>
+      <p>Make quiet audio louder, safely and automatically.</p>
+    </a>
+
+    <a href="audio-speed-changer.html" class="tool-card">
+      <div class="tool-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <h3>Audio Speed Changer</h3>
+      <p>Speed up or slow down, with or without pitch shift.</p>
+    </a>
+
+  </div>
+
+  <p class="soon-note">More tools — <strong>Video to Audio Extractor, Text to Speech, Audio Reverser, Fade In/Out, Transcription &amp; Noise Reducer</strong> — are on the way. Check back soon.</p>
+</section>
+
+<section id="how" style="background:var(--bg2)">
+  <div class="section-label">Simple Steps</div>
+  <h2>How It Works</h2>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="step-num">1</div>
+      <h3>Choose a Tool</h3>
+      <p>Pick the tool you need — convert, trim, compress, merge, and more.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">2</div>
+      <h3>Upload Your File</h3>
+      <p>Click upload or drag and drop your audio file directly onto the tool.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">3</div>
+      <h3>Download Instantly</h3>
+      <p>Get your processed file back in seconds — nothing ever leaves your device.</p>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="section-label">Why AudioToolkit</div>
+  <h2>Built for Real Use</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div><h3>100% Private</h3><p>All processing happens in your browser. Nothing is sent to our servers.</p></div>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div><h3>Completely Free</h3><p>Every tool, every export option — no hidden fees, no subscription.</p></div>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div><h3>No Account Needed</h3><p>Open the page and start working. Zero signup, zero friction.</p></div>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div><h3>Fast Processing</h3><p>No server round-trips means your file is ready in seconds.</p></div>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div><h3>Works on Any Device</h3><p>Fully responsive — use it on your phone, tablet, or desktop.</p></div>
+    </div>
+    <div class="why-card">
+      <div class="why-dot"></div>
+      <div><h3>No Watermarks</h3><p>Your downloaded files are clean, with nothing added.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Audio<span>Toolkit</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p>© 2026 AudioToolkit. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
