@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Online Audio Reverser – Reverse Any Audio File – AudioToolkit</title>
+<meta name="description" content="Reverse any audio file free online. Play it backward, preview it instantly, and download the result. No upload to servers, 100% private." />
+<meta name="keywords" content="audio reverser online, reverse audio free, play audio backward, reverse mp3 online, reverse sound tool" />
+<link rel="canonical" href="https://audiotoolkit.netlify.app/audio-reverser.html" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AudioToolkit" />
+<meta property="og:title" content="Free Online Audio Reverser – Reverse Any Audio File – AudioToolkit" />
+<meta property="og:description" content="Reverse any audio file free online. Preview it instantly and download, entirely in your browser." />
+<meta property="og:url" content="https://audiotoolkit.netlify.app/audio-reverser.html" />
+<meta property="og:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Online Audio Reverser – Reverse Any Audio File – AudioToolkit" />
+<meta name="twitter:description" content="Reverse any audio file free online. Preview it instantly and download, entirely in your browser." />
+<meta name="twitter:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Audio Reverser",
+  "url": "https://audiotoolkit.netlify.app/audio-reverser.html",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "description": "Reverse any audio file free online, entirely in your browser.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Why would someone reverse an audio file?","acceptedAnswer":{"@type":"Answer","text":"Reversing audio is used for sound design and music production effects, hidden-message novelty clips, backward cymbal swells, and general creative experimentation with how a sound behaves played in reverse."}},
+    {"@type":"Question","name":"Will reversing affect audio quality?","acceptedAnswer":{"@type":"Answer","text":"No. Reversing simply reorders the existing audio samples from end to start — it doesn't remove or alter any of the actual sound data."}},
+    {"@type":"Question","name":"Can I preview the reversed audio before downloading?","acceptedAnswer":{"@type":"Answer","text":"Yes, use the Preview button to hear the reversed version before exporting it."}},
+    {"@type":"Question","name":"Is my file uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Reversing happens entirely inside your browser. Your file is never uploaded anywhere."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111827; --bg2:#1A2333; --green:#10B981; --green2:#059669; --cyan:#22D3EE;
+  --white:#FFFFFF; --slate:#9CA3AF; --border:#293449; --card:#1A2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+
+.breadcrumb{padding:14px 5% 0;font-size:.82rem;color:var(--slate);max-width:1100px;margin:0 auto}
+.breadcrumb a{color:var(--cyan);text-decoration:none}
+
+.hero{padding:64px 5% 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--slate);font-size:1.05rem;max-width:540px;margin:0 auto}
+
+.tool-section{padding:40px 5% 70px}
+.tool-box{max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:34px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+
+.upload-zone{border:2px dashed rgba(16,185,129,0.4);border-radius:18px;padding:44px 24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(16,185,129,0.04)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--green);background:rgba(16,185,129,0.08)}
+.upload-zone input{display:none}
+.upload-icon{width:56px;height:56px;margin:0 auto 16px;background:linear-gradient(135deg,var(--green),var(--cyan));border-radius:50%;display:flex;align-items:center;justify-content:center}
+.upload-icon svg{width:26px;height:26px;stroke:#0B1120;fill:none;stroke-width:2.4}
+.upload-zone h3{font-size:1.05rem;font-weight:700;margin-bottom:5px;color:var(--white)}
+.upload-zone p{color:var(--slate);font-size:.85rem}
+
+.file-info{display:none;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:20px}
+.file-info.active{display:flex}
+.file-info .fname{font-weight:700;font-size:.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--white)}
+.file-info .fsize{color:var(--slate);font-size:.8rem}
+
+.control-panel{display:none;margin-top:22px}
+.control-panel.active{display:block}
+.control-group{margin-bottom:20px}
+.control-group label{display:block;font-size:.85rem;font-weight:700;margin-bottom:9px;color:var(--white)}
+select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:inherit;background:var(--bg);color:var(--white)}
+
+.btn-row{display:flex;gap:10px;margin-bottom:18px}
+.btn-secondary{flex:1;background:var(--bg);border:1.5px solid var(--border);color:var(--white);border-radius:12px;padding:12px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;transition:border-color .2s}
+.btn-secondary:hover{border-color:var(--cyan)}
+
+.btn-convert{width:100%;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;border:none;border-radius:14px;padding:15px;font-weight:800;font-size:.98rem;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
+.btn-convert:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,185,129,0.3)}
+.btn-convert:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+.progress-wrap{display:none;margin-top:18px}
+.progress-wrap.active{display:block}
+.progress-bar{height:9px;background:var(--border);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:0%;transition:width .15s;border-radius:100px}
+.progress-label{font-size:.8rem;color:var(--slate);margin-top:7px;text-align:center;font-weight:600}
+
+.result-box{display:none;margin-top:20px;text-align:center;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:18px;padding:24px}
+.result-box.active{display:block}
+.result-box h3{font-size:1.02rem;font-weight:700;margin-bottom:14px;color:var(--white)}
+.btn-download{display:inline-block;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;text-decoration:none;font-weight:800;padding:13px 30px;border-radius:14px;font-size:.92rem}
+
+.reset-link{display:block;text-align:center;margin-top:16px;font-size:.85rem;color:var(--slate);cursor:pointer;font-weight:600}
+.reset-link:hover{color:var(--cyan)}
+
+section.content{padding:20px 5% 60px}
+.content-wrap{max-width:740px;margin:0 auto}
+.section-block{padding:34px 0;border-bottom:1px solid var(--border)}
+.section-block:last-child{border-bottom:none}
+.section-block h2{font-size:clamp(1.2rem,2.5vw,1.5rem);font-weight:800;letter-spacing:-.4px;margin-bottom:14px;color:var(--white)}
+.section-block h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px;color:var(--cyan)}
+.section-block p{color:#CBD5E1;font-size:.97rem;margin-bottom:12px}
+.section-block p:last-child{margin-bottom:0}
+.section-block ul{margin:0 0 12px 20px;color:#CBD5E1;font-size:.97rem}
+.section-block li{margin-bottom:6px}
+.section-block strong{color:var(--white)}
+
+.faq-section{background:var(--bg2);padding:60px 5%}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:17px 22px;font-weight:700;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+.faq-arrow{transition:transform .2s;color:var(--green)}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 22px;font-size:.9rem;color:#CBD5E1}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+
+footer{background:#0B111F;color:var(--slate);text-align:center;padding:38px 5%;border-top:1px solid var(--border)}
+.footer-logo{color:var(--white);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:var(--slate);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+footer p{font-size:.82rem}
+
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Audio<span>Toolkit</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#tools">All Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Audio Reverser</div>
+
+<section class="hero">
+  <div class="hero-badge">Free · Private · No Login</div>
+  <h1>Audio <span>Reverser</span></h1>
+  <p>Flip any audio file to play backward. Preview it instantly, then download — all in your browser.</p>
+</section>
+
+<section class="tool-section">
+  <div class="tool-box">
+
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" accept="audio/*" />
+      <div class="upload-icon">
+        <svg viewBox="0 0 24 24"><polyline points="9 10 4 15 9 20"/><path d="M20 4v7a4 4 0 01-4 4H4"/></svg>
+      </div>
+      <h3>Click or drag an audio file here</h3>
+      <p>Supports MP3, WAV, M4A, AAC, OGG</p>
+    </div>
+
+    <div class="file-info" id="fileInfo">
+      <div style="flex:1;overflow:hidden">
+        <div class="fname" id="fname"></div>
+        <div class="fsize" id="fsize"></div>
+      </div>
+    </div>
+
+    <div class="control-panel" id="controlPanel">
+
+      <div class="btn-row">
+        <button class="btn-secondary" id="previewBtn">▶ Preview Reversed Audio</button>
+      </div>
+
+      <div class="control-group">
+        <label>Export format</label>
+        <select id="formatSelect">
+          <option value="wav">WAV (lossless, original quality)</option>
+          <option value="mp3">MP3 (compressed, smaller file)</option>
+        </select>
+      </div>
+
+      <button class="btn-convert" id="reverseBtn">Reverse &amp; Download</button>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Processing...</div>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <h3>Your reversed file is ready!</h3>
+        <a class="btn-download" id="downloadBtn" download>Download File</a>
+      </div>
+
+      <span class="reset-link" id="resetLink">Start over with a new file</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="content">
+  <div class="content-wrap">
+
+    <div class="section-block">
+      <h2>Free Online Audio Reverser</h2>
+      <p>Playing a sound backward reveals a completely different texture — cymbals swell instead of decay, spoken words become an unrecognizable string of syllables, and simple melodies can take on an eerie or unexpected character. Reversing audio is a classic sound design trick used in music production, video editing, and creative audio experiments of all kinds.</p>
+      <p>This tool reverses your audio file entirely inside your browser. It reads the audio data, flips the order of every sample from end to start, and lets you preview and download the result — nothing is uploaded to a server at any point.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>How Audio Reversal Works</h2>
+      <p>An audio file is really just a very long sequence of numbers, each representing the sound wave's position at a tiny slice of time. Reversing the audio means reading that sequence backward — the last sample becomes the first, and the first becomes the last — so the sound plays in the opposite direction from how it was originally recorded. No audio data is removed or altered in the process, only reordered.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Common Uses for Reversed Audio</h2>
+      <ul>
+        <li><strong>Music production:</strong> reversed cymbal or piano swells are a common transition effect leading into a new section of a track</li>
+        <li><strong>Sound design:</strong> reversing a recorded sound effect often produces an interesting new texture that wouldn't be achievable any other way</li>
+        <li><strong>Creative experiments:</strong> some musicians and podcasters use reversed clips as intentional novelty or transition moments</li>
+        <li><strong>Voice and audio analysis:</strong> reversing speech is sometimes used in linguistics or audio research to study patterns independent of forward meaning</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>Tips for Working with Reversed Audio</h2>
+      <ul>
+        <li>Always preview the reversed clip before downloading — reversed audio can sound very different from what you'd expect just from imagining it</li>
+        <li>If you're using a reversed clip as a transition effect, try trimming it first so only the interesting part of the reversed sound is included</li>
+        <li>Combining a reversed clip with a fade-in often smooths out an otherwise abrupt-sounding reversed swell</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why would someone reverse an audio file? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Reversing audio is used for sound design and music production effects, hidden-message novelty clips, backward cymbal swells, and general creative experimentation with how a sound behaves played in reverse.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Will reversing affect audio quality? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. Reversing simply reorders the existing audio samples from end to start — it doesn't remove or alter any of the actual sound data.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I preview the reversed audio before downloading? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Yes, use the Preview button to hear the reversed version before exporting it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my file uploaded to a server? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. Reversing happens entirely inside your browser. Your file is never uploaded anywhere.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Audio<span>Toolkit</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p>© 2026 AudioToolkit. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script>
+  function toggleFaq(el){ el.parentElement.classList.toggle('open'); }
+
+  const uploadZone = document.getElementById('uploadZone');
+  const fileInput = document.getElementById('fileInput');
+  const fileInfo = document.getElementById('fileInfo');
+  const fname = document.getElementById('fname');
+  const fsize = document.getElementById('fsize');
+  const controlPanel = document.getElementById('controlPanel');
+  const previewBtn = document.getElementById('previewBtn');
+  const formatSelect = document.getElementById('formatSelect');
+  const reverseBtn = document.getElementById('reverseBtn');
+  const progressWrap = document.getElementById('progressWrap');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const resultBox = document.getElementById('resultBox');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetLink = document.getElementById('resetLink');
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContextClass();
+
+  let currentFile = null;
+  let audioBuffer = null;
+  let reversedBuffer = null;
+  let playSource = null;
+
+  uploadZone.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', e => { if (e.target.files.length) handleFile(e.target.files[0]); });
+
+  function reverseBuffer(buffer){
+    const out = audioCtx.createBuffer(buffer.numberOfChannels, buffer.length, buffer.sampleRate);
+    for (let ch=0; ch<buffer.numberOfChannels; ch++){
+      const input = buffer.getChannelData(ch);
+      const output = out.getChannelData(ch);
+      for (let i=0; i<input.length; i++){
+        output[i] = input[input.length - 1 - i];
+      }
+    }
+    return out;
+  }
+
+  async function handleFile(file){
+    currentFile = file;
+    fname.textContent = file.name;
+    fsize.textContent = (file.size/1024/1024).toFixed(2) + ' MB';
+    fileInfo.classList.add('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+
+    const arrayBuffer = await file.arrayBuffer();
+    audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+    reversedBuffer = reverseBuffer(audioBuffer);
+    controlPanel.classList.add('active');
+  }
+
+  previewBtn.addEventListener('click', () => {
+    if (!reversedBuffer) return;
+    if (playSource){ playSource.stop(); playSource = null; }
+    playSource = audioCtx.createBufferSource();
+    playSource.buffer = reversedBuffer;
+    playSource.connect(audioCtx.destination);
+    playSource.start(0, 0, Math.min(15, reversedBuffer.duration));
+    previewBtn.textContent = '⏸ Playing preview...';
+    playSource.onended = () => { previewBtn.textContent = '▶ Preview Reversed Audio'; };
+  });
+
+  resetLink.addEventListener('click', () => {
+    currentFile = null;
+    audioBuffer = null;
+    reversedBuffer = null;
+    fileInput.value = '';
+    fileInfo.classList.remove('active');
+    controlPanel.classList.remove('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+  });
+
+  function audioBufferToWav(buffer){
+    const numChannels = buffer.numberOfChannels;
+    const sampleRate = buffer.sampleRate;
+    const bitDepth = 16;
+    const bytesPerSample = bitDepth/8;
+    const blockAlign = numChannels * bytesPerSample;
+    let interleaved;
+    if (numChannels === 2){
+      const left = buffer.getChannelData(0);
+      const right = buffer.getChannelData(1);
+      interleaved = new Float32Array(left.length + right.length);
+      for (let i=0, j=0; i<left.length; i++){
+        interleaved[j++] = left[i];
+        interleaved[j++] = right[i];
+      }
+    } else {
+      interleaved = buffer.getChannelData(0);
+    }
+    const dataLength = interleaved.length * bytesPerSample;
+    const arrBuffer = new ArrayBuffer(44 + dataLength);
+    const view = new DataView(arrBuffer);
+    function writeString(offset, str){ for (let i=0;i<str.length;i++) view.setUint8(offset+i, str.charCodeAt(i)); }
+    writeString(0,'RIFF'); view.setUint32(4, 36+dataLength, true); writeString(8,'WAVE');
+    writeString(12,'fmt '); view.setUint32(16,16,true); view.setUint16(20,1,true);
+    view.setUint16(22,numChannels,true); view.setUint32(24,sampleRate,true);
+    view.setUint32(28,sampleRate*blockAlign,true); view.setUint16(32,blockAlign,true);
+    view.setUint16(34,bitDepth,true); writeString(36,'data'); view.setUint32(40,dataLength,true);
+    let offset=44;
+    for (let i=0;i<interleaved.length;i++,offset+=2){
+      let s = Math.max(-1, Math.min(1, interleaved[i]));
+      view.setInt16(offset, s<0?s*0x8000:s*0x7FFF, true);
+    }
+    return new Blob([arrBuffer], {type:'audio/wav'});
+  }
+
+  function floatTo16BitPCM(input){
+    const output = new Int16Array(input.length);
+    for (let i=0;i<input.length;i++){
+      let s = Math.max(-1, Math.min(1, input[i]));
+      output[i] = s<0?s*0x8000:s*0x7FFF;
+    }
+    return output;
+  }
+
+  function audioBufferToMp3(buffer, bitrate){
+    const channels = buffer.numberOfChannels >= 2 ? 2 : 1;
+    const sampleRate = buffer.sampleRate;
+    const mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, bitrate);
+    const sampleBlockSize = 1152;
+    const mp3Data = [];
+    const left16 = floatTo16BitPCM(buffer.getChannelData(0));
+    const right16 = channels===2 ? floatTo16BitPCM(buffer.getChannelData(1)) : null;
+    for (let i=0;i<left16.length;i+=sampleBlockSize){
+      const leftChunk = left16.subarray(i,i+sampleBlockSize);
+      let mp3buf;
+      if (channels===2){
+        const rightChunk = right16.subarray(i,i+sampleBlockSize);
+        mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
+      } else {
+        mp3buf = mp3encoder.encodeBuffer(leftChunk);
+      }
+      if (mp3buf.length>0) mp3Data.push(new Int8Array(mp3buf));
+    }
+    const finalBuf = mp3encoder.flush();
+    if (finalBuf.length>0) mp3Data.push(new Int8Array(finalBuf));
+    return new Blob(mp3Data, {type:'audio/mp3'});
+  }
+
+  reverseBtn.addEventListener('click', async () => {
+    if (!reversedBuffer) return;
+    reverseBtn.disabled = true;
+    progressWrap.classList.add('active');
+    resultBox.classList.remove('active');
+    progressFill.style.width = '40%';
+    progressLabel.textContent = 'Encoding...';
+
+    try {
+      let blob, ext;
+      if (formatSelect.value === 'wav'){
+        blob = audioBufferToWav(reversedBuffer);
+        ext = 'wav';
+      } else {
+        blob = audioBufferToMp3(reversedBuffer, 192);
+        ext = 'mp3';
+      }
+
+      progressFill.style.width = '100%';
+      progressLabel.textContent = 'Done!';
+
+      const url = URL.createObjectURL(blob);
+      const baseName = currentFile.name.replace(/\.[^/.]+$/, '');
+      downloadBtn.href = url;
+      downloadBtn.download = baseName + '-reversed.' + ext;
+
+      setTimeout(() => {
+        progressWrap.classList.remove('active');
+        resultBox.classList.add('active');
+        reverseBtn.disabled = false;
+      }, 300);
+    } catch (err){
+      progressLabel.textContent = 'Something went wrong. Please try a different file.';
+      reverseBtn.disabled = false;
+      console.error(err);
+    }
+  });
+</script>
+
+</body>
+</html>

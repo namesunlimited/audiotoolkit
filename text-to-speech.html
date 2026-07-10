@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Online Text to Speech – Listen to Any Text – AudioToolkit</title>
+<meta name="description" content="Convert text to speech free online. Choose a voice, adjust speed and pitch, and listen instantly in your browser. No upload, 100% private, no signup." />
+<meta name="keywords" content="text to speech online, free tts, text to speech reader, online voice reader, text to voice free" />
+<link rel="canonical" href="https://audiotoolkit.netlify.app/text-to-speech.html" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AudioToolkit" />
+<meta property="og:title" content="Free Online Text to Speech – Listen to Any Text – AudioToolkit" />
+<meta property="og:description" content="Convert text to speech free online. Choose a voice, adjust speed and pitch, and listen instantly in your browser." />
+<meta property="og:url" content="https://audiotoolkit.netlify.app/text-to-speech.html" />
+<meta property="og:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Online Text to Speech – Listen to Any Text – AudioToolkit" />
+<meta name="twitter:description" content="Convert text to speech free online. Choose a voice, adjust speed and pitch, and listen instantly in your browser." />
+<meta name="twitter:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Text to Speech",
+  "url": "https://audiotoolkit.netlify.app/text-to-speech.html",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "description": "Convert text to speech free online and listen instantly, entirely in your browser.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Can I download the generated speech as an audio file?","acceptedAnswer":{"@type":"Answer","text":"No. This tool uses your browser's built-in speech engine to play text aloud instantly, but browsers don't provide a way to export that audio as a downloadable file without a server-based service."}},
+    {"@type":"Question","name":"Which voices are available?","acceptedAnswer":{"@type":"Answer","text":"The available voices depend on your device and browser. Most computers and phones include several built-in voices in different languages and accents."}},
+    {"@type":"Question","name":"Is my text sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. Speech is generated locally using your browser's or operating system's built-in text-to-speech engine. Your text is never uploaded anywhere."}},
+    {"@type":"Question","name":"Why do the available voices look different on my phone vs my computer?","acceptedAnswer":{"@type":"Answer","text":"Voices are provided by your device's operating system and browser, not by this website, so the exact list varies between Windows, macOS, Android, and iOS."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111827; --bg2:#1A2333; --green:#10B981; --green2:#059669; --cyan:#22D3EE;
+  --white:#FFFFFF; --slate:#9CA3AF; --border:#293449; --card:#1A2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+
+.breadcrumb{padding:14px 5% 0;font-size:.82rem;color:var(--slate);max-width:1100px;margin:0 auto}
+.breadcrumb a{color:var(--cyan);text-decoration:none}
+
+.hero{padding:64px 5% 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--slate);font-size:1.05rem;max-width:540px;margin:0 auto}
+
+.tool-section{padding:40px 5% 70px}
+.tool-box{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:34px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+
+textarea{width:100%;min-height:160px;background:var(--bg);border:1.5px solid var(--border);border-radius:14px;padding:16px;color:var(--white);font-family:inherit;font-size:.95rem;resize:vertical;line-height:1.6}
+textarea:focus{outline:none;border-color:var(--green)}
+.char-count{text-align:right;font-size:.78rem;color:var(--slate);margin-top:6px;margin-bottom:20px}
+
+.control-group{margin-bottom:20px}
+.control-group label{display:flex;justify-content:space-between;font-size:.85rem;font-weight:700;margin-bottom:9px;color:var(--white)}
+.control-group label span{color:var(--cyan)}
+select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:inherit;background:var(--bg);color:var(--white)}
+input[type=range]{width:100%;accent-color:var(--green)}
+
+.slider-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+
+.btn-row{display:flex;gap:10px}
+.btn-convert{flex:1;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;border:none;border-radius:14px;padding:15px;font-weight:800;font-size:.98rem;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
+.btn-convert:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,185,129,0.3)}
+.btn-convert:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-secondary{flex:1;background:var(--bg);border:1.5px solid var(--border);color:var(--white);border-radius:14px;padding:15px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:inherit;transition:border-color .2s}
+.btn-secondary:hover{border-color:var(--cyan)}
+
+.status-note{text-align:center;font-size:.82rem;color:var(--slate);margin-top:16px}
+.status-note.speaking{color:var(--cyan);font-weight:700}
+
+.info-banner{background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.25);border-radius:12px;padding:14px 16px;margin-bottom:20px;font-size:.83rem;color:#CBD5E1}
+.info-banner strong{color:var(--cyan)}
+
+section.content{padding:20px 5% 60px}
+.content-wrap{max-width:740px;margin:0 auto}
+.section-block{padding:34px 0;border-bottom:1px solid var(--border)}
+.section-block:last-child{border-bottom:none}
+.section-block h2{font-size:clamp(1.2rem,2.5vw,1.5rem);font-weight:800;letter-spacing:-.4px;margin-bottom:14px;color:var(--white)}
+.section-block h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px;color:var(--cyan)}
+.section-block p{color:#CBD5E1;font-size:.97rem;margin-bottom:12px}
+.section-block p:last-child{margin-bottom:0}
+.section-block ul{margin:0 0 12px 20px;color:#CBD5E1;font-size:.97rem}
+.section-block li{margin-bottom:6px}
+.section-block strong{color:var(--white)}
+
+.faq-section{background:var(--bg2);padding:60px 5%}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:17px 22px;font-weight:700;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+.faq-arrow{transition:transform .2s;color:var(--green)}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 22px;font-size:.9rem;color:#CBD5E1}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+
+footer{background:#0B111F;color:var(--slate);text-align:center;padding:38px 5%;border-top:1px solid var(--border)}
+.footer-logo{color:var(--white);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:var(--slate);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+footer p{font-size:.82rem}
+
+@media(max-width:600px){.nav-links{display:none}.slider-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Audio<span>Toolkit</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#tools">All Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Text to Speech</div>
+
+<section class="hero">
+  <div class="hero-badge">Free · Private · No Login</div>
+  <h1>Text to <span>Speech</span></h1>
+  <p>Type or paste any text and hear it read aloud instantly, in the voice, speed, and pitch you choose.</p>
+</section>
+
+<section class="tool-section">
+  <div class="tool-box">
+
+    <div class="info-banner">
+      <strong>Note:</strong> this tool plays speech instantly using your browser's built-in voice engine. Browsers don't allow that audio to be exported as a downloadable file — this is a listen-only tool, not a file converter.
+    </div>
+
+    <textarea id="textInput" placeholder="Type or paste your text here...">Hello! This is a free text to speech tool. Type anything you like, choose a voice, and press play to hear it read aloud.</textarea>
+    <div class="char-count"><span id="charCount">0</span> characters</div>
+
+    <div class="control-group">
+      <label>Voice</label>
+      <select id="voiceSelect"></select>
+    </div>
+
+    <div class="slider-row">
+      <div class="control-group" style="margin-bottom:0">
+        <label>Speed <span id="rateLabel">1.0x</span></label>
+        <input type="range" id="rateSlider" min="0.5" max="2" step="0.1" value="1" />
+      </div>
+      <div class="control-group" style="margin-bottom:0">
+        <label>Pitch <span id="pitchLabel">1.0</span></label>
+        <input type="range" id="pitchSlider" min="0" max="2" step="0.1" value="1" />
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-convert" id="playBtn">▶ Play</button>
+      <button class="btn-secondary" id="stopBtn">■ Stop</button>
+    </div>
+
+    <div class="status-note" id="statusNote">Ready</div>
+
+  </div>
+</section>
+
+<section class="content">
+  <div class="content-wrap">
+
+    <div class="section-block">
+      <h2>Free Online Text to Speech</h2>
+      <p>Whether you want to proofread your writing by ear, hear a message read back before sending it, or just prefer listening over reading, converting text to speech is a simple way to change how you take in written content. This tool uses your browser's own built-in speech engine — the same technology behind screen readers and voice assistants — to read any text you type or paste, instantly.</p>
+      <p>Because it relies on your browser and operating system's speech engine rather than a remote service, there's nothing to upload and no waiting: press play, and it reads immediately.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Why There's No Download Option</h2>
+      <p>Unlike the other tools on this site, text-to-speech works a little differently under the hood. Browsers generate the spoken audio live, through your device's speakers, using an API designed purely for real-time playback — not for producing a file you can save. There's no standard, privacy-respecting way for a website to capture and export that audio as an MP3 or WAV without routing it through a server, which would defeat the "everything stays on your device" approach this tool is built around.</p>
+      <p>If you specifically need a downloadable voice-over file, that typically requires a dedicated server-based text-to-speech service — this tool is best suited for quick listening, not file generation.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Adjusting Voice, Speed, and Pitch</h2>
+      <ul>
+        <li><strong>Voice</strong> — pick from whichever voices are installed on your device. Options and quality vary by operating system and browser.</li>
+        <li><strong>Speed</strong> — slow it down to catch every word clearly, or speed it up to get through longer text faster.</li>
+        <li><strong>Pitch</strong> — raise or lower the tone of the voice. Most people find the default setting sounds most natural.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>Common Uses for Text to Speech</h2>
+      <ul>
+        <li>Proofreading your own writing by listening for awkward phrasing that's easy to miss when reading silently</li>
+        <li>Having an article, email, or document read aloud while doing something else</li>
+        <li>Previewing how a message or script will sound when spoken before recording or sending it</li>
+        <li>Making written content more accessible for people who prefer or need audio over text</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <h2>Tips for Best Results</h2>
+      <ul>
+        <li>Break very long text into shorter paragraphs — some browsers handle shorter chunks more reliably than one enormous block of text</li>
+        <li>Try a few different installed voices — quality and naturalness can vary noticeably between them</li>
+        <li>If a sentence sounds off, check for unusual punctuation or abbreviations, which speech engines sometimes read literally</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I download the generated speech as an audio file? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. This tool uses your browser's built-in speech engine to play text aloud instantly, but browsers don't provide a way to export that audio as a downloadable file without a server-based service.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Which voices are available? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">The available voices depend on your device and browser. Most computers and phones include several built-in voices in different languages and accents.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my text sent to a server? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. Speech is generated locally using your browser's or operating system's built-in text-to-speech engine. Your text is never uploaded anywhere.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Why do the available voices look different on my phone vs my computer? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Voices are provided by your device's operating system and browser, not by this website, so the exact list varies between Windows, macOS, Android, and iOS.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Audio<span>Toolkit</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p>© 2026 AudioToolkit. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleFaq(el){ el.parentElement.classList.toggle('open'); }
+
+  const textInput = document.getElementById('textInput');
+  const charCount = document.getElementById('charCount');
+  const voiceSelect = document.getElementById('voiceSelect');
+  const rateSlider = document.getElementById('rateSlider');
+  const rateLabel = document.getElementById('rateLabel');
+  const pitchSlider = document.getElementById('pitchSlider');
+  const pitchLabel = document.getElementById('pitchLabel');
+  const playBtn = document.getElementById('playBtn');
+  const stopBtn = document.getElementById('stopBtn');
+  const statusNote = document.getElementById('statusNote');
+
+  const synth = window.speechSynthesis;
+  let voices = [];
+
+  function updateCharCount(){ charCount.textContent = textInput.value.length; }
+  textInput.addEventListener('input', updateCharCount);
+  updateCharCount();
+
+  function loadVoices(){
+    voices = synth.getVoices();
+    voiceSelect.innerHTML = '';
+    if (!voices.length){
+      const opt = document.createElement('option');
+      opt.textContent = 'No voices found — try a different browser';
+      voiceSelect.appendChild(opt);
+      return;
+    }
+    voices.forEach((v, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = v.name + ' (' + v.lang + ')';
+      voiceSelect.appendChild(opt);
+    });
+  }
+  loadVoices();
+  if (synth.onvoiceschanged !== undefined) synth.onvoiceschanged = loadVoices;
+
+  rateSlider.addEventListener('input', () => { rateLabel.textContent = parseFloat(rateSlider.value).toFixed(1) + 'x'; });
+  pitchSlider.addEventListener('input', () => { pitchLabel.textContent = parseFloat(pitchSlider.value).toFixed(1); });
+
+  playBtn.addEventListener('click', () => {
+    if (!textInput.value.trim()) return;
+    synth.cancel();
+    const utter = new SpeechSynthesisUtterance(textInput.value);
+    const voiceIdx = parseInt(voiceSelect.value, 10);
+    if (voices[voiceIdx]) utter.voice = voices[voiceIdx];
+    utter.rate = parseFloat(rateSlider.value);
+    utter.pitch = parseFloat(pitchSlider.value);
+
+    utter.onstart = () => { statusNote.textContent = 'Speaking...'; statusNote.classList.add('speaking'); };
+    utter.onend = () => { statusNote.textContent = 'Ready'; statusNote.classList.remove('speaking'); };
+    utter.onerror = () => { statusNote.textContent = 'Something went wrong. Please try again.'; statusNote.classList.remove('speaking'); };
+
+    synth.speak(utter);
+  });
+
+  stopBtn.addEventListener('click', () => {
+    synth.cancel();
+    statusNote.textContent = 'Ready';
+    statusNote.classList.remove('speaking');
+  });
+</script>
+
+</body>
+</html>
