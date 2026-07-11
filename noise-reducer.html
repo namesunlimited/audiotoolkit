@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Online Noise Reducer – Remove Background Noise from Audio – AudioToolkit</title>
+<meta name="description" content="Reduce background hiss, hum, and constant noise from any audio file free online. Preview instantly and download. No upload to servers, 100% private." />
+<meta name="keywords" content="noise reducer online, remove background noise free, reduce hiss audio, clean audio noise online, denoise audio free" />
+<link rel="canonical" href="https://audiotoolkit.netlify.app/noise-reducer.html" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="AudioToolkit" />
+<meta property="og:title" content="Free Online Noise Reducer – Remove Background Noise from Audio – AudioToolkit" />
+<meta property="og:description" content="Reduce background hiss, hum, and constant noise from any audio file free online. Runs entirely in your browser." />
+<meta property="og:url" content="https://audiotoolkit.netlify.app/noise-reducer.html" />
+<meta property="og:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Online Noise Reducer – Remove Background Noise from Audio – AudioToolkit" />
+<meta name="twitter:description" content="Reduce background hiss, hum, and constant noise from any audio file free online. Runs entirely in your browser." />
+<meta name="twitter:image" content="https://audiotoolkit.netlify.app/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Noise Reducer",
+  "url": "https://audiotoolkit.netlify.app/noise-reducer.html",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any (runs in browser)",
+  "description": "Reduce background hiss, hum, and constant noise from any audio file free online, entirely in your browser.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What kind of noise can this tool remove?","acceptedAnswer":{"@type":"Answer","text":"It works best on constant background noise like hiss, fan noise, or low-frequency hum — the kind of steady sound that sits underneath quieter passages or silence in a recording."}},
+    {"@type":"Question","name":"Can it remove noise that overlaps with speech or music?","acceptedAnswer":{"@type":"Answer","text":"This tool reduces noise mainly during quieter sections rather than separating noise from louder speech or music happening at the same time, since that requires more advanced audio processing."}},
+    {"@type":"Question","name":"Will noise reduction affect the quality of the wanted audio?","acceptedAnswer":{"@type":"Answer","text":"Light and Medium settings preserve wanted audio well. Strong settings prioritize aggressive noise removal, which can occasionally soften quiet details along with the noise."}},
+    {"@type":"Question","name":"Is my file uploaded anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. All noise reduction processing happens locally in your browser. Your file is never uploaded to a server."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#111827; --bg2:#1A2333; --green:#10B981; --green2:#059669; --cyan:#22D3EE;
+  --white:#FFFFFF; --slate:#9CA3AF; --border:#293449; --card:#1A2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(17,24,39,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-size:1.3rem;font-weight:800;color:var(--white);text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--slate);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--cyan)}
+
+.breadcrumb{padding:14px 5% 0;font-size:.82rem;color:var(--slate);max-width:1100px;margin:0 auto}
+.breadcrumb a{color:var(--cyan);text-decoration:none}
+
+.hero{padding:64px 5% 30px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);color:var(--green);font-size:.78rem;font-weight:700;padding:7px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;color:var(--white);line-height:1.15;letter-spacing:-1px;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,var(--green),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero>p{color:var(--slate);font-size:1.05rem;max-width:540px;margin:0 auto}
+
+.tool-section{padding:40px 5% 70px}
+.tool-box{max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:24px;padding:34px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+
+.upload-zone{border:2px dashed rgba(16,185,129,0.4);border-radius:18px;padding:44px 24px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(16,185,129,0.04)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--green);background:rgba(16,185,129,0.08)}
+.upload-zone input{display:none}
+.upload-icon{width:56px;height:56px;margin:0 auto 16px;background:linear-gradient(135deg,var(--green),var(--cyan));border-radius:50%;display:flex;align-items:center;justify-content:center}
+.upload-icon svg{width:26px;height:26px;stroke:#0B1120;fill:none;stroke-width:2.4}
+.upload-zone h3{font-size:1.05rem;font-weight:700;margin-bottom:5px;color:var(--white)}
+.upload-zone p{color:var(--slate);font-size:.85rem}
+
+.file-info{display:none;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 18px;margin-bottom:20px}
+.file-info.active{display:flex}
+.file-info .fname{font-weight:700;font-size:.9rem;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--white)}
+.file-info .fsize{color:var(--slate);font-size:.8rem}
+
+.control-panel{display:none;margin-top:22px}
+.control-panel.active{display:block}
+.control-group{margin-bottom:20px}
+.control-group label{display:block;font-size:.85rem;font-weight:700;margin-bottom:9px;color:var(--white)}
+
+.level-row{display:flex;gap:8px}
+.level-btn{flex:1;padding:14px 6px;border:1.5px solid var(--border);border-radius:12px;background:var(--bg);color:var(--white);cursor:pointer;transition:all .15s;text-align:center}
+.level-btn.active{background:linear-gradient(135deg,var(--green),var(--green2));border-color:var(--green)}
+.level-btn .lvl-title{font-size:.85rem;font-weight:800;margin-bottom:2px}
+.level-btn .lvl-sub{font-size:.72rem;color:var(--slate)}
+.level-btn.active .lvl-sub{color:rgba(255,255,255,0.85)}
+
+.btn-row{display:flex;gap:10px;margin-bottom:18px}
+.btn-secondary{flex:1;background:var(--bg);border:1.5px solid var(--border);color:var(--white);border-radius:12px;padding:12px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;transition:border-color .2s}
+.btn-secondary:hover{border-color:var(--cyan)}
+
+select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:12px;font-size:.92rem;font-family:inherit;background:var(--bg);color:var(--white)}
+
+.btn-convert{width:100%;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;border:none;border-radius:14px;padding:15px;font-weight:800;font-size:.98rem;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
+.btn-convert:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(16,185,129,0.3)}
+.btn-convert:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+.progress-wrap{display:none;margin-top:18px}
+.progress-wrap.active{display:block}
+.progress-bar{height:9px;background:var(--border);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:0%;transition:width .15s;border-radius:100px}
+.progress-label{font-size:.8rem;color:var(--slate);margin-top:7px;text-align:center;font-weight:600}
+
+.result-box{display:none;margin-top:20px;text-align:center;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:18px;padding:24px}
+.result-box.active{display:block}
+.result-box h3{font-size:1.02rem;font-weight:700;margin-bottom:14px;color:var(--white)}
+.btn-download{display:inline-block;background:linear-gradient(135deg,var(--green),var(--cyan));color:#0B1120;text-decoration:none;font-weight:800;padding:13px 30px;border-radius:14px;font-size:.92rem}
+
+.reset-link{display:block;text-align:center;margin-top:16px;font-size:.85rem;color:var(--slate);cursor:pointer;font-weight:600}
+.reset-link:hover{color:var(--cyan)}
+
+section.content{padding:20px 5% 60px}
+.content-wrap{max-width:740px;margin:0 auto}
+.section-block{padding:34px 0;border-bottom:1px solid var(--border)}
+.section-block:last-child{border-bottom:none}
+.section-block h2{font-size:clamp(1.2rem,2.5vw,1.5rem);font-weight:800;letter-spacing:-.4px;margin-bottom:14px;color:var(--white)}
+.section-block h3{font-size:1.02rem;font-weight:700;margin:18px 0 8px;color:var(--cyan)}
+.section-block p{color:#CBD5E1;font-size:.97rem;margin-bottom:12px}
+.section-block p:last-child{margin-bottom:0}
+.section-block ul{margin:0 0 12px 20px;color:#CBD5E1;font-size:.97rem}
+.section-block li{margin-bottom:6px}
+.section-block strong{color:var(--white)}
+
+.faq-section{background:var(--bg2);padding:60px 5%}
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq-q{padding:17px 22px;font-weight:700;font-size:.95rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--white)}
+.faq-arrow{transition:transform .2s;color:var(--green)}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 22px;font-size:.9rem;color:#CBD5E1}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px}
+
+footer{background:#0B111F;color:var(--slate);text-align:center;padding:38px 5%;border-top:1px solid var(--border)}
+.footer-logo{color:var(--white);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.footer-logo span{color:var(--green)}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.footer-links a{color:var(--slate);text-decoration:none;font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--cyan)}
+footer p{font-size:.82rem}
+
+@media(max-width:600px){.nav-links{display:none}.level-row{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">Audio<span>Toolkit</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#tools">All Tools</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact-us.html">Contact</a></li>
+  </ul>
+</nav>
+<div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Noise Reducer</div>
+
+<section class="hero">
+  <div class="hero-badge">Free · Private · No Login</div>
+  <h1>Noise <span>Reducer</span></h1>
+  <p>Reduce background hiss, hum, and constant noise from any audio file. Preview it, then download.</p>
+</section>
+
+<section class="tool-section">
+  <div class="tool-box">
+
+    <div class="upload-zone" id="uploadZone">
+      <input type="file" id="fileInput" accept="audio/*" />
+      <div class="upload-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+      </div>
+      <h3>Click or drag an audio file here</h3>
+      <p>Supports MP3, WAV, M4A, AAC, OGG</p>
+    </div>
+
+    <div class="file-info" id="fileInfo">
+      <div style="flex:1;overflow:hidden">
+        <div class="fname" id="fname"></div>
+        <div class="fsize" id="fsize"></div>
+      </div>
+    </div>
+
+    <div class="control-panel" id="controlPanel">
+      <div class="control-group">
+        <label>Reduction strength</label>
+        <div class="level-row">
+          <div class="level-btn" data-level="light">
+            <div class="lvl-title">Light</div>
+            <div class="lvl-sub">Subtle cleanup</div>
+          </div>
+          <div class="level-btn active" data-level="medium">
+            <div class="lvl-title">Medium</div>
+            <div class="lvl-sub">Balanced</div>
+          </div>
+          <div class="level-btn" data-level="strong">
+            <div class="lvl-title">Strong</div>
+            <div class="lvl-sub">Max reduction</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" id="previewBtn">▶ Preview</button>
+      </div>
+
+      <div class="control-group">
+        <label>Export format</label>
+        <select id="formatSelect">
+          <option value="wav">WAV (lossless, original quality)</option>
+          <option value="mp3">MP3 (compressed, smaller file)</option>
+        </select>
+      </div>
+
+      <button class="btn-convert" id="applyBtn">Reduce Noise &amp; Download</button>
+
+      <div class="progress-wrap" id="progressWrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel">Processing...</div>
+      </div>
+
+      <div class="result-box" id="resultBox">
+        <h3>Your cleaned-up file is ready!</h3>
+        <a class="btn-download" id="downloadBtn" download>Download File</a>
+      </div>
+
+      <span class="reset-link" id="resetLink">Start over with a new file</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="content">
+  <div class="content-wrap">
+
+    <div class="section-block">
+      <h2>Free Online Noise Reducer</h2>
+      <p>A constant hiss, fan hum, or low-level background rumble is one of the most common problems in home-recorded audio — voice memos, podcast recordings, or anything captured without professional soundproofing. This tool reduces that steady background noise using two techniques working together: a filter that removes very low-frequency rumble, and a noise gate that quiets the signal during gaps and quiet passages where the unwanted noise is most noticeable.</p>
+      <p>All processing happens locally in your browser. Your file is decoded, cleaned up, and handed back as a download — nothing is uploaded to a server.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>How This Noise Reducer Works</h2>
+      <h3>High-Pass Filtering</h3>
+      <p>Many common noise sources — air conditioning hum, electrical buzz, handling rumble from a microphone stand — sit in the very low end of the frequency range, well below where human speech and most music actually live. A high-pass filter removes that low-frequency energy while leaving speech and music untouched, cutting down on rumble immediately.</p>
+      <h3>Noise Gating</h3>
+      <p>A noise gate listens to the overall level of the audio and automatically quiets it further whenever it drops below a chosen threshold — typically during pauses between words, gaps in music, or any section that should be near-silent. This is where background hiss is usually most noticeable, so gating it down makes the recording sound noticeably cleaner during those moments, without affecting the louder parts where your voice or music is actually playing.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Choosing a Reduction Strength</h2>
+      <ul>
+        <li><strong>Light</strong> — a subtle cleanup, best for recordings that are already fairly clean but have a slight background hum</li>
+        <li><strong>Medium</strong> — a balanced setting that noticeably reduces common background noise while keeping voice and music sounding natural</li>
+        <li><strong>Strong</strong> — the most aggressive setting, best for noticeably noisy recordings, though it can occasionally soften very quiet details along with the noise</li>
+      </ul>
+      <p>If you're not sure where to start, Medium is a safe default for most voice recordings and podcasts.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>What This Tool Can and Can't Fix</h2>
+      <p>This approach works best on steady, constant background noise — the kind that's present throughout a recording at roughly the same level. It's less effective at removing noise that's tangled up with the wanted audio at the same volume and time, like a voice recorded very close to a loud fan running constantly in the background at speaking volume — that kind of overlapping noise requires more advanced, model-based audio processing to separate cleanly.</p>
+    </div>
+
+    <div class="section-block">
+      <h2>Tips for Best Results</h2>
+      <ul>
+        <li>Always preview before downloading — the right strength setting varies a lot depending on how noisy the original recording is</li>
+        <li>If your recording has both rumble and hiss, this tool addresses both at once, but very heavy noise may need multiple passes or professional audio software for full removal</li>
+        <li>Prevention is still the best fix — recording in a quieter environment or closer to the microphone reduces how much noise reduction you'll need afterward</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What kind of noise can this tool remove? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">It works best on constant background noise like hiss, fan noise, or low-frequency hum — the kind of steady sound that sits underneath quieter passages or silence in a recording.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can it remove noise that overlaps with speech or music? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">This tool reduces noise mainly during quieter sections rather than separating noise from louder speech or music happening at the same time, since that requires more advanced audio processing.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Will noise reduction affect the quality of the wanted audio? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">Light and Medium settings preserve wanted audio well. Strong settings prioritize aggressive noise removal, which can occasionally soften quiet details along with the noise.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my file uploaded anywhere? <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">No. All noise reduction processing happens locally in your browser. Your file is never uploaded to a server.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Audio<span>Toolkit</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact-us.html">Contact Us</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p>© 2026 AudioToolkit. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
+<script>
+  function toggleFaq(el){ el.parentElement.classList.toggle('open'); }
+
+  const uploadZone = document.getElementById('uploadZone');
+  const fileInput = document.getElementById('fileInput');
+  const fileInfo = document.getElementById('fileInfo');
+  const fname = document.getElementById('fname');
+  const fsize = document.getElementById('fsize');
+  const controlPanel = document.getElementById('controlPanel');
+  const levelBtns = document.querySelectorAll('.level-btn');
+  const previewBtn = document.getElementById('previewBtn');
+  const formatSelect = document.getElementById('formatSelect');
+  const applyBtn = document.getElementById('applyBtn');
+  const progressWrap = document.getElementById('progressWrap');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const resultBox = document.getElementById('resultBox');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const resetLink = document.getElementById('resetLink');
+
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  const audioCtx = new AudioContextClass();
+
+  const LEVELS = {
+    light:  { hpFreq: 60,  thresholdDb: -50, floor: 0.35 },
+    medium: { hpFreq: 90,  thresholdDb: -40, floor: 0.18 },
+    strong: { hpFreq: 120, thresholdDb: -30, floor: 0.08 },
+  };
+
+  let currentFile = null;
+  let audioBuffer = null;
+  let selectedLevel = 'medium';
+  let playSource = null;
+
+  uploadZone.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+  uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+  uploadZone.addEventListener('drop', e => {
+    e.preventDefault();
+    uploadZone.classList.remove('drag-over');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', e => { if (e.target.files.length) handleFile(e.target.files[0]); });
+
+  async function handleFile(file){
+    currentFile = file;
+    fname.textContent = file.name;
+    fsize.textContent = (file.size/1024/1024).toFixed(2) + ' MB';
+    fileInfo.classList.add('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+
+    const arrayBuffer = await file.arrayBuffer();
+    audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+    controlPanel.classList.add('active');
+  }
+
+  levelBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      levelBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedLevel = btn.dataset.level;
+    });
+  });
+
+  resetLink.addEventListener('click', () => {
+    currentFile = null;
+    audioBuffer = null;
+    fileInput.value = '';
+    fileInfo.classList.remove('active');
+    controlPanel.classList.remove('active');
+    resultBox.classList.remove('active');
+    progressWrap.classList.remove('active');
+  });
+
+  async function applyHighpass(buffer, freq){
+    const offlineCtx = new OfflineAudioContext(buffer.numberOfChannels, buffer.length, buffer.sampleRate);
+    const src = offlineCtx.createBufferSource();
+    src.buffer = buffer;
+    const filter = offlineCtx.createBiquadFilter();
+    filter.type = 'highpass';
+    filter.frequency.value = freq;
+    filter.Q.value = 0.7;
+    src.connect(filter);
+    filter.connect(offlineCtx.destination);
+    src.start(0);
+    return await offlineCtx.startRendering();
+  }
+
+  function applyNoiseGate(buffer, thresholdDb, floor){
+    const sr = buffer.sampleRate;
+    const threshold = Math.pow(10, thresholdDb/20);
+    const attackMs = 4, releaseMs = 120;
+    const attackCoef = Math.exp(-1/(sr*(attackMs/1000)));
+    const releaseCoef = Math.exp(-1/(sr*(releaseMs/1000)));
+    const out = audioCtx.createBuffer(buffer.numberOfChannels, buffer.length, sr);
+
+    for (let ch=0; ch<buffer.numberOfChannels; ch++){
+      const input = buffer.getChannelData(ch);
+      const output = out.getChannelData(ch);
+      let envGain = 1;
+      let peakFollower = 0;
+      for (let i=0; i<input.length; i++){
+        const absVal = Math.abs(input[i]);
+        peakFollower = Math.max(absVal, peakFollower * 0.9995);
+        const targetGain = peakFollower > threshold ? 1 : floor;
+        if (targetGain > envGain) envGain = attackCoef*envGain + (1-attackCoef)*targetGain;
+        else envGain = releaseCoef*envGain + (1-releaseCoef)*targetGain;
+        output[i] = input[i] * envGain;
+      }
+    }
+    return out;
+  }
+
+  async function processAudio(buffer, level){
+    const cfg = LEVELS[level];
+    const filtered = await applyHighpass(buffer, cfg.hpFreq);
+    return applyNoiseGate(filtered, cfg.thresholdDb, cfg.floor);
+  }
+
+  previewBtn.addEventListener('click', async () => {
+    if (!audioBuffer) return;
+    if (playSource){ playSource.stop(); playSource = null; }
+    previewBtn.textContent = '⏳ Processing preview...';
+    const processed = await processAudio(audioBuffer, selectedLevel);
+    playSource = audioCtx.createBufferSource();
+    playSource.buffer = processed;
+    playSource.connect(audioCtx.destination);
+    playSource.start(0, 0, Math.min(15, processed.duration));
+    previewBtn.textContent = '⏸ Playing preview...';
+    playSource.onended = () => { previewBtn.textContent = '▶ Preview'; };
+  });
+
+  function audioBufferToWav(buffer){
+    const numChannels = buffer.numberOfChannels;
+    const sampleRate = buffer.sampleRate;
+    const bitDepth = 16;
+    const bytesPerSample = bitDepth/8;
+    const blockAlign = numChannels * bytesPerSample;
+    let interleaved;
+    if (numChannels === 2){
+      const left = buffer.getChannelData(0);
+      const right = buffer.getChannelData(1);
+      interleaved = new Float32Array(left.length + right.length);
+      for (let i=0, j=0; i<left.length; i++){
+        interleaved[j++] = left[i];
+        interleaved[j++] = right[i];
+      }
+    } else {
+      interleaved = buffer.getChannelData(0);
+    }
+    const dataLength = interleaved.length * bytesPerSample;
+    const arrBuffer = new ArrayBuffer(44 + dataLength);
+    const view = new DataView(arrBuffer);
+    function writeString(offset, str){ for (let i=0;i<str.length;i++) view.setUint8(offset+i, str.charCodeAt(i)); }
+    writeString(0,'RIFF'); view.setUint32(4, 36+dataLength, true); writeString(8,'WAVE');
+    writeString(12,'fmt '); view.setUint32(16,16,true); view.setUint16(20,1,true);
+    view.setUint16(22,numChannels,true); view.setUint32(24,sampleRate,true);
+    view.setUint32(28,sampleRate*blockAlign,true); view.setUint16(32,blockAlign,true);
+    view.setUint16(34,bitDepth,true); writeString(36,'data'); view.setUint32(40,dataLength,true);
+    let offset=44;
+    for (let i=0;i<interleaved.length;i++,offset+=2){
+      let s = Math.max(-1, Math.min(1, interleaved[i]));
+      view.setInt16(offset, s<0?s*0x8000:s*0x7FFF, true);
+    }
+    return new Blob([arrBuffer], {type:'audio/wav'});
+  }
+
+  function floatTo16BitPCM(input){
+    const output = new Int16Array(input.length);
+    for (let i=0;i<input.length;i++){
+      let s = Math.max(-1, Math.min(1, input[i]));
+      output[i] = s<0?s*0x8000:s*0x7FFF;
+    }
+    return output;
+  }
+
+  function audioBufferToMp3(buffer, bitrate){
+    const channels = buffer.numberOfChannels >= 2 ? 2 : 1;
+    const sampleRate = buffer.sampleRate;
+    const mp3encoder = new lamejs.Mp3Encoder(channels, sampleRate, bitrate);
+    const sampleBlockSize = 1152;
+    const mp3Data = [];
+    const left16 = floatTo16BitPCM(buffer.getChannelData(0));
+    const right16 = channels===2 ? floatTo16BitPCM(buffer.getChannelData(1)) : null;
+    for (let i=0;i<left16.length;i+=sampleBlockSize){
+      const leftChunk = left16.subarray(i,i+sampleBlockSize);
+      let mp3buf;
+      if (channels===2){
+        const rightChunk = right16.subarray(i,i+sampleBlockSize);
+        mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
+      } else {
+        mp3buf = mp3encoder.encodeBuffer(leftChunk);
+      }
+      if (mp3buf.length>0) mp3Data.push(new Int8Array(mp3buf));
+    }
+    const finalBuf = mp3encoder.flush();
+    if (finalBuf.length>0) mp3Data.push(new Int8Array(finalBuf));
+    return new Blob(mp3Data, {type:'audio/mp3'});
+  }
+
+  applyBtn.addEventListener('click', async () => {
+    if (!audioBuffer) return;
+    applyBtn.disabled = true;
+    progressWrap.classList.add('active');
+    resultBox.classList.remove('active');
+    progressFill.style.width = '20%';
+    progressLabel.textContent = 'Filtering low-frequency noise...';
+
+    try {
+      const cfg = LEVELS[selectedLevel];
+      const filtered = await applyHighpass(audioBuffer, cfg.hpFreq);
+
+      progressFill.style.width = '55%';
+      progressLabel.textContent = 'Applying noise gate...';
+      const gated = applyNoiseGate(filtered, cfg.thresholdDb, cfg.floor);
+
+      progressFill.style.width = '80%';
+      progressLabel.textContent = 'Encoding...';
+
+      let blob, ext;
+      if (formatSelect.value === 'wav'){
+        blob = audioBufferToWav(gated);
+        ext = 'wav';
+      } else {
+        blob = audioBufferToMp3(gated, 192);
+        ext = 'mp3';
+      }
+
+      progressFill.style.width = '100%';
+      progressLabel.textContent = 'Done!';
+
+      const url = URL.createObjectURL(blob);
+      const baseName = currentFile.name.replace(/\.[^/.]+$/, '');
+      downloadBtn.href = url;
+      downloadBtn.download = baseName + '-denoised.' + ext;
+
+      setTimeout(() => {
+        progressWrap.classList.remove('active');
+        resultBox.classList.add('active');
+        applyBtn.disabled = false;
+      }, 300);
+    } catch (err){
+      progressLabel.textContent = 'Something went wrong. Please try a different file.';
+      applyBtn.disabled = false;
+      console.error(err);
+    }
+  });
+</script>
+
+</body>
+</html>
